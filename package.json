@@ -1,0 +1,24 @@
+{
+  "name": "mz",
+  "version": "1.0.0",
+  "description": "Bu bilgi tabanı, **MZ ETZ 251** motosikletinin motoru (EM 251) hakkında kapsamlı teknik bilgi, bakım prosedürleri, tamir kılavuzları ve sorun giderme rehberlerini içerir.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/corazon714/MZ.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/corazon714/MZ/issues"
+  },
+  "homepage": "https://github.com/corazon714/MZ#readme",
+  "dependencies": {
+    "marked": "^18.0.2"
+  }
+}
