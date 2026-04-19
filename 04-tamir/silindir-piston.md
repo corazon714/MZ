@@ -35,6 +35,29 @@ Honlama, silindir iç yüzeyinin ince bir aşındırıcı taşla işlenerek:
 
 **Honlama açısı**: ~45° çapraz çizgi (cross-hatch) deseni — yağ tutma için ideal
 
+```
+  SİLİNDİR İÇ YÜZEY — Honlama Deseni:
+
+  ┌──────────────────────┐
+  │ ╲   ╱  ╲   ╱  ╲   ╱ │
+  │   ╲╱    ╲╱    ╲╱    │
+  │   ╱╲    ╱╲    ╱╲    │  ← ~45° çapraz çizgi
+  │ ╱   ╲ ╱   ╲ ╱   ╲  │     (cross-hatch pattern)
+  │ ╲   ╱  ╲   ╱  ╲   ╱ │
+  │   ╲╱    ╲╱    ╲╱    │     Bu desen yağ filmini tutar
+  │   ╱╲    ╱╲    ╱╲    │     ve segman oturmasını sağlar
+  │ ╱   ╲ ╱   ╲ ╱   ╲  │
+  └──────────────────────┘
+
+  DOĞRU: ~45° açı         YANLIŞ: Dikey çizikler
+  ╲   ╱ ╲   ╱             │ │ │ │ │ │
+    ╲╱   ╲╱               │ │ │ │ │ │
+    ╱╲   ╱╲               │ │ │ │ │ │
+  ╱   ╲╱   ╲             │ │ │ │ │ │
+  Yağ burada               Yağ aşağı akar
+  tutulur                   segman hızlı aşınır
+```
+
 ### Silindir Hasar Tipleri
 
 | Hasar | Neden | Çözüm |
@@ -51,22 +74,53 @@ Honlama, silindir iç yüzeyinin ince bir aşındırıcı taşla işlenerek:
 ### Piston Yapısı
 
 ```
-          ┌───────────────┐
-          │  Piston Tepesi │  ← Yanma odasına bakan yüzey
-          │  (Kolbenboden)  │
-          ├───────────────┤
-          │ 1. Segman kanalı│  ← Sızdırmazlık segmanı
-          ├───────────────┤
-          │ 2. Segman kanalı│  ← İkinci sızdırmazlık
-          ├───────────────┤
-          │               │
-          │  Piston Eteği  │  ← Silindir duvarı ile temas
-          │  (Kolbenhemd)  │
-          │       ○        │  ← Piston pimi deliği (Bolzenbohrung)
-          │               │
-          └───────────────┘
-            ↑ Ok işareti ↑
-         (Egzoz tarafına bakmalı!)
+  PİSTON — Detaylı Kesit Görünüm:
+
+           Yanma odası tarafı (üst)
+                    ▲
+          ╔═════════════════════╗
+          ║   PİSTON TEPESİ     ║ ← Kolbenboden
+          ║   (düz veya bombeli)║    Yanma basıncını alır
+          ╠═════════════════════╣
+          ║ ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ║ ← 1. SEGMAN (Kolbenring)
+          ║ ·  1. kanal  · ║    Üst sızdırmazlık halkası
+          ╠═════════════════════╣
+          ║ ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ║ ← 2. SEGMAN
+          ║ ·  2. kanal  · ║    Alt sızdırmazlık halkası
+          ╠═════════════════════╣
+          ║                     ║
+          ║   PİSTON ETEĞİ     ║ ← Kolbenhemd
+          ║   (Silindir duvarı  ║    Pistonu silindir içinde
+          ║    ile temas eden   ║    merkezli tutar
+          ║    kısım)           ║
+          ║        ╭─────╮      ║
+          ║ ═══════╡  ●  ╞══════║ ← PİSTON PİMİ (Kolbenbolzen)
+          ║        ╰─────╯      ║    Biyeli pistona bağlar
+          ║  ◎                ◎ ║ ← SEGERLER (Sicherungsringe)
+          ║  (sol)          (sağ)║   Pimin kaymasını önler
+          ║                     ║
+          ╚═════════════════════╝
+                    │
+                    ▼
+              Karter tarafı (alt)
+
+  PİSTON — Üstten Görünüm:
+
+              ╭─────────────────╮
+             ╱                   ╲
+            │    ▲ OK İŞARETİ     │
+            │    │                 │
+            │    │ Bu ok EGZOZ     │
+            │    │ tarafına        │
+            │    │ bakmalı!        │
+            │                     │
+            │  ═══════●═══════   │ ← Piston pimi ekseni
+            │                     │
+             ╲                   ╱
+              ╰─────────────────╯
+
+  ⚠️ Pistonun ok işaretini KONTROL EDİN!
+     Yanlış yöne takılan piston → port hasarı, motor arızası
 ```
 
 ### Piston Özellikleri

@@ -36,6 +36,68 @@
 
 ### Karbüratör Sökümü
 
+```
+  BVF 30 N 3-1 — SÖKÜM SIRALAMASI:
+
+  ┌─────────────────────────────┐
+  │  1. ÜST KAPAK sökülür       │ ← 2 vida ile tutturulmuş
+  │     (Vergaserdeckel)        │
+  └──────────────┬──────────────┘
+                 │
+  ┌──────────────▼──────────────┐
+  │  2. SÜRGÜ + YAY + İĞNE      │ ← Bir bütün olarak çıkar
+  │     çıkarılır               │    İğne sürgüdeki klips ile
+  │                             │    bağlı — dikkatli ol
+  │  ┌────────┐ ┌──┐ ┌──────┐  │
+  │  │ Yay    │ │S │ │İğne  │  │
+  │  │ ≋≋≋≋≋≋ │ │ü │ │  │   │  │
+  │  │ ≋≋≋≋≋≋ │ │r │ │  │   │  │
+  │  │        │ │g │ │  ╲   │  │
+  │  └────────┘ │ü │ │   ╲  │  │
+  │             └──┘ │    ● │  │
+  │                   └──────┘  │
+  └──────────────┬──────────────┘
+                 │
+  ┌──────────────▼──────────────┐
+  │  3. GÖVDE TERS ÇEVRİLİR    │
+  │     Alt kapak 2 vida ile    │
+  │     sökülür                 │
+  └──────────────┬──────────────┘
+                 │
+  ┌──────────────▼──────────────┐
+  │  4. ŞAMANDIRA çıkarılır     │ ← Pim ile tutturulmuş
+  │     Şamandıra iğne valfi    │    Pimi yandan iterek çıkar
+  │     çıkarılır               │
+  │                             │
+  │  ┌─╮  ╭──────────╮  ╭─┐    │
+  │  │ │  │ Şamandıra│  │ │    │
+  │  │ │  ╰──────────╯  │ │    │
+  │  └─╯   ● Pim        ╰─┘    │
+  └──────────────┬──────────────┘
+                 │
+  ┌──────────────▼──────────────┐
+  │  5. JİKLELER sökülür        │
+  │                             │
+  │  ┌──┐ Ana jikle (Hauptdüse) │ ← Düz tornavida
+  │  │●│ ortadan                │
+  │  └──┘                       │
+  │  ┌──┐ Rölanti jiklesi       │ ← Küçük, dikkat!
+  │  │·│  (Leerlaufdüse)        │
+  │  └──┘                       │
+  │  ┌──┐ İğne jiklesi          │
+  │  │○│  (Nadeldüse)           │
+  │  └──┘                       │
+  └──────────────┬──────────────┘
+                 │
+  ┌──────────────▼──────────────┐
+  │  6. KARIŞIM VİDASI sökülür   │
+  │     (Kaç tur açık olduğunu  │
+  │      NOT EDIN!  Örn: 1¾ tur)│
+  └─────────────────────────────┘
+
+  ⚠️ Sökümden ÖNCE tüm ayar pozisyonlarını kaydedin!
+```
+
 1. **Sürgülü piston kapağını** (Vergaserdeckel) sökün
 2. Sürgülü pistonu, iğneyi ve yayı çıkarın
 3. **Şamandıra odası** alt kapağını (Schwimmerkammerdeckel) sökün

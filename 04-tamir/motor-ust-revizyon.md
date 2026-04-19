@@ -77,6 +77,41 @@
 
 ### Silindir İç Çap Ölçümü
 
+```
+  SİLİNDİR İÇ ÇAP ÖLÇÜM NOKTALARI:
+
+  ╔═══════════════════════╗
+  ║    Silindir Kapağı    ║
+  ╠═══════════════════════╣
+  ║                       ║
+  ║ ── 1. ÜST ────── ←──║── En fazla aşınma burada
+  ║    (ÜÖN yakını)       ║   (piston tersinme noktası)
+  ║                       ║
+  ║ ── 2. ORTA ──────     ║── Referans ölçüm
+  ║                       ║
+  ║ ── 3. ALT ───────     ║── En az aşınma
+  ║                       ║
+  ╠═══════════════════════╣
+  ║    Karter Bağlantı    ║
+  ╚═══════════════════════╝
+
+  Her noktada İKİ YÖNDE ölçün:
+
+        Silindir üstten bakış:
+
+            EGZOZ
+              │
+         ╭────┼────╮
+        ╱     │     ╲
+       │   ←──A──→   │  A yönü: Piston pimi eksenine DİK
+       │      │      │  B yönü: Piston pimi eksenine PARALEL
+       │   ←──┼──→   │
+        ╲     B     ╱   Fark = OVALİTE (dairesizlik)
+         ╰────┼────╯     Maks: 0,01 mm
+              │
+            EMME
+```
+
 | Ölçüm Noktası | Açıklama |
 |---|---|
 | **Üst** (ÜÖN yakını) | En fazla aşınma burada |
@@ -98,6 +133,50 @@ Her noktada **iki yönde** (piston pimi ekseninde ve dik ekseninde) ölçün.
 | Piston-silindir aralığı | Silindir çapı - Piston çapı = 0,04–0,06 mm (tipik) |
 
 ### Segman Kontrolü
+
+```
+  SEGMAN AĞIZ ARALIĞI (Ring Gap) ÖLÇÜMÜ:
+
+  1. Segmanı silindire yerleştirin
+     (pistonla düz iterek hizalayın)
+
+     ╔═══════════════════════╗
+     ║       SİLİNDİR        ║
+     ║                       ║
+     ║   ╭─────────────╮     ║
+     ║  ╱               ╲    ║
+     ║ │   ╭───────╮     │   ║  ← Segman silindirin
+     ║ │   │SEGMAN │     │   ║     içinde oturmuş
+     ║ │   ╰───┬───╯     │   ║
+     ║  ╲     │ ↕       ╱    ║     │↕│= Ağız aralığı
+     ║   ╰────┼────────╯     ║     Feeler gauge ile ölç
+     ║        │              ║
+     ╚════════╧══════════════╝
+
+  2. Feeler gauge ile ağız aralığını ölçün:
+
+     ──────────┐ ┌──────────
+               │↔│
+     ──────────┘ └──────────
+               ↕
+          0,15–0,40 mm (yeni)
+          > 0,8 mm → DEĞİŞTİR!
+
+  SEGMAN AĞIZ POZİSYONU (2 Zamanlı Motor):
+
+     ╭──────────────╮
+    ╱    EGZOZ ▲     ╲
+   │         │        │
+   │    ┌────┴────┐   │
+   │    │ PİSTON  │   │
+   │    │         │   │     ⚠️ 2T motorlarda segman ağızları
+   │    │  ●────● │   │     KİLİTLEME PİNLERİ ile sabitlenir.
+   │    │ (pin) (pin) │     Ağızlar pinlerin üzerinde olmalı!
+   │    └─────────┘   │
+   │                  │     Ağız bir porta denk gelirse
+    ╲                ╱      segman yakalanır ve KIRILIR!
+     ╰──────────────╯
+```
 
 | Kontrol | Yöntem | Sınır |
 |---|---|---|
@@ -137,6 +216,34 @@ Her noktada **iki yönde** (piston pimi ekseninde ve dik ekseninde) ölçün.
 6. Silindir tamamen oturduğunda cıvataları takın
 
 ### 5. Silindir Kapağı Montajı
+
+```
+  ÇAPRAZ SIKMA SIRASI (Kreuzweise Anziehen):
+
+  Silindir kapağı — üstten bakış:
+
+       ┌─────────────────────────┐
+       │                         │
+       │   ①               ④    │  Sıkma sırası:
+       │     ╲             ╱     │  ① → ② → ③ → ④
+       │       ╲         ╱       │  (çapraz olarak)
+       │         ╲     ╱         │
+       │           ╳             │  Kademeli:
+       │         ╱     ╲         │  1. tur: Elle
+       │       ╱         ╲       │  2. tur: %50 tork
+       │     ╱             ╲     │  3. tur: %100 tork
+       │   ③               ②    │
+       │                         │
+       └─────────────────────────┘
+
+  ⚠️ ASLA tek seferde tam torka sıkmayın!
+     Conta eşit oturmaz → sızdırmazlık bozulur.
+
+  ⚠️ ASLA dairesel sıkma yapmayın!
+     ① → ② → ③ → ④ (sırayla) YANLIŞ!
+     ① → ② → ③ → ④ (çapraz) DOĞRU!
+```
+
 1. Yeni silindir kapağı contasını yerleştirin
 2. Kapağı yerleştirin
 3. Cıvataları **çapraz sırayla** ve **kademeli olarak** sıkın:

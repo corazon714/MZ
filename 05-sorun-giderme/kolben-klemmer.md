@@ -37,17 +37,47 @@ MZ, toleransları revize ederek sorunu büyük ölçüde çözmüştür. ETZ 251
 ## Kolbenklemmer Nasıl Oluşur?
 
 ```
-Normal Çalışma:                     Kolbenklemmer:
-┌──────────────┐                   ┌──────────────┐
-│  Silindir    │                   │  Silindir    │
-│  ┌────────┐  │                   │  ┌════════┐  │
-│  │Piston  │  │ ← Boşluk         │  │Piston  │  │ ← Boşluk YOK
-│  │  ↕     │  │   (0,04-0,06mm)  │  ║  XXX   ║  │   Yapışma!
-│  │        │  │                   │  ║        ║  │
-│  └────────┘  │                   │  └════════┘  │
-└──────────────┘                   └──────────────┘
-  Piston serbestçe                   Piston kilitli
-  hareket eder                       Motor DURUR
+  PİSTON TUTMASI (Kolbenklemmer) — Aşama Aşama:
+
+  1. NORMAL               2. ISINIYOR            3. TEHLİKE!           4. TUTULMA!
+  (Soğuk/normal)          (Aşırı ısınma)        (Boşluk azalıyor)    (Motor durur)
+
+  ┌──────────┐           ┌──────────┐          ┌──────────┐          ┌──────────┐
+  │Silindir  │           │Silindir  │          │Silindir  │          │Silindir  │
+  │          │           │          │          │          │          │          │
+  │ ┌──────┐ │           │ ┌──────┐ │          │ ┌══════┐ │          │ ╔══════╗ │
+  │ │      │ │           │ │ ░░░░ │ │          │ │▓▓▓▓▓▓│ │          │ ║██████║ │
+  │ │Piston│ │           │ │Piston│ │          │ │Piston│ │          │ ║Piston║ │
+  │ │  ↕   │ │           │ │  ↕   │ │          │ │  ↕   │ │          │ ║  ██  ║ │
+  │ │      │ │           │ │ ░░░░ │ │          │ │▓▓▓▓▓▓│ │          │ ║██████║ │
+  │ └──────┘ │           │ └──────┘ │          │ └══════┘ │          │ ╚══════╝ │
+  │  ↔ boşluk│           │ ↔ boşluk↔│          │↔dar↔     │          │ boşluk=0 │
+  └──────────┘           └──────────┘          └──────────┘          └──────────┘
+  Boşluk: 0,04-0,06mm   Piston genleşir       Yağ filmi incelir     YAPIŞMA!
+  Yağ filmi sağlam       Boşluk azalır         Metal-metal temas     Motor DURUR
+
+  ═══════════════════════════════════════════════════════════════════════════
+
+  KOLBENKLEMMER NEDENLERİ — Akış Şeması:
+
+  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐
+  │ FAKİR KARIŞIM   │  │ YETERSİZ YAĞLAMA│  │ AŞIRI YÜK       │
+  │                 │  │                 │  │                 │
+  │ • Hava kaçağı   │  │ • Yanlış yağ    │  │ • Uzun süre     │
+  │ • Küçük jikle   │  │   oranı         │  │   tam gaz       │
+  │ • Tıkalı jikle  │  │ • Yağsız yakıt  │  │ • Yokuş çıkışı │
+  │ • Karbüratör    │  │ • Yağ pompası   │  │ • Yüksek sıcak  │
+  │   ayar bozuk    │  │   arızası       │  │   hava + tam gaz│
+  └────────┬────────┘  └────────┬────────┘  └────────┬────────┘
+           │                    │                     │
+           └────────────────────┼─────────────────────┘
+                                │
+                       ┌────────▼────────┐
+                       │  AŞIRI ISINMA   │
+                       │  → PİSTON       │
+                       │    GENLEŞMESİ   │
+                       │  → KOLBENKLEMMER │
+                       └─────────────────┘
 ```
 
 ### Adım Adım

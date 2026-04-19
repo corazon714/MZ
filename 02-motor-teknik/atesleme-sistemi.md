@@ -16,19 +16,57 @@ MZ'de elektronik ateşleme **1987** yılında ETZ 250e modeli ile tanıtılmış
 ### Çalışma Prensibi
 
 ```
-┌──────────────┐    ┌──────────────────┐    ┌──────────────┐
-│  Jeneratör   │───→│  Elektronik      │───→│  Ateşleme    │
-│  (Lichtmaschine)│ │  Kontrol Ünitesi │    │  Bobini      │
-│  Tetikleme   │    │  (Steuergerät)   │    │  (Zündspule)  │
-│  bobini      │    │  CDI/Thyristor   │    └──────┬───────┘
-└──────────────┘    └──────────────────┘           │
-                                                    │ Yüksek voltaj
-                                                    ↓
-                                              ┌──────────────┐
-                                              │  BUJİ        │
-                                              │  (Zündkerze)  │
-                                              │  Kıvılcım!   │
-                                              └──────────────┘
+  ELEKTRONİK ATEŞLEME SİSTEMİ — Sinyal Akış Şeması:
+
+  ┌─────────────────────────────────────────────────────────────┐
+  │                                                             │
+  │ JENERATÖR (Lichtmaschine)                                   │
+  │ ┌──────────────────────────┐                                │
+  │ │  ╭─╮   ╭─╮   ╭─╮        │                                │
+  │ │  │S│   │N│   │S│ Rotor  │  Krank mili döner →            │
+  │ │  ╰─╯   ╰─╯   ╰─╯ (mıknatıs)  AC sinyal üretir          │
+  │ │  ┌─┐   ┌─┐   ┌─┐        │                                │
+  │ │  │ │   │ │   │ │ Stator │                                │
+  │ │  │█│   │█│   │█│ (bobin)│                                │
+  │ │  └─┘   └─┘   └─┘        │                                │
+  │ └──────────┬──┬────────────┘                                │
+  │            │  │                                             │
+  │   Tetikleme│  │Güç                                          │
+  │   sinyali  │  │beslemesi                                    │
+  │            ▼  ▼                                             │
+  │ ┌──────────────────────────┐                                │
+  │ │  ELEKTRONİK KONTROL     │                                │
+  │ │  ÜNİTESİ (Steuergerät)  │                                │
+  │ │  ┌────────────────────┐  │                                │
+  │ │  │ Tetikleme gelir →  │  │  "Doğru zamanda"              │
+  │ │  │ Thyristor/SCR      │  │  kondansatörü boşaltarak      │
+  │ │  │ ATEŞ emri verir    │  │  bobinin birincil devresine   │
+  │ │  └────────────────────┘  │  yüksek akım gönderir         │
+  │ └──────────┬───────────────┘                                │
+  │            │                                                │
+  │            │ Yüksek akım darbesi                            │
+  │            ▼                                                │
+  │ ┌──────────────────────────┐                                │
+  │ │  ATEŞLEME BOBİNİ        │                                │
+  │ │  (Zündspule)             │    Birincil: ~12V              │
+  │ │  ┌──┐     ┌──────────┐  │    İkincil: ~20.000V           │
+  │ │  │██│ ←── │██████████│  │                                │
+  │ │  │██│1.dev│██████████│2.│    Transformatör prensibi:     │
+  │ │  │██│ ──→ │██████████│  │    Düşük voltajı               │
+  │ │  └──┘     └──────────┘  │    yüksek voltaja dönüştürür   │
+  │ └──────────┬───────────────┘                                │
+  │            │                                                │
+  │            │ ~20.000V yüksek gerilim                        │
+  │            ▼                                                │
+  │ ┌──────────────────────────┐                                │
+  │ │  BUJİ (Zündkerze)        │                                │
+  │ │                          │                                │
+  │ │     ──┐    ┌──           │  Elektrotlar arası ~0,5mm      │
+  │ │       │    │             │  Yüksek voltaj → ark oluşumu   │
+  │ │       └~★~┘             │  ★ = KIVILCIM → Tutuşma!      │
+  │ │                          │                                │
+  │ └──────────────────────────┘                                │
+  └─────────────────────────────────────────────────────────────┘
 ```
 
 ### Sistem Bileşenleri
@@ -97,6 +135,42 @@ MZ'de elektronik ateşleme **1987** yılında ETZ 250e modeli ile tanıtılmış
 
 ### Platin Aralığı (Unterbrecherabstand)
 
+```
+  PLATİN KONTAĞI — Çalışma Prensibi:
+
+  KAM (Nocken) krank mili üzerinde döner:
+
+       KAPALI (kapalı devre)          AÇIK (açık devre = kıvılcım anı!)
+
+            ╭─╮                              ╭─╮
+      ──────┤ ├──── Sabit kol          ──────┤ ├──── Sabit kol
+            │ │                              │ │
+            │●│ ← Temas noktaları            │ │
+            │ │    birbirine değiyor         │ │  ← 0,4 mm aralık
+      ──────┤ ├──── Hareketli kol      ──────┤ ├──── Hareketli kol
+            ╰─╯                              ╰┬╯
+                                               │
+            Kam düz kısımda              ╭──╮  │ ← Kam çıkıntısı
+                                         │  ╰──┘    kolu açıyor
+                                         ╰──╮
+                                             │ Kam dönüş yönü →
+
+  PLATİN ARALIĞI ÖLÇÜMÜ:
+
+                    ┌── Sabit kol
+                    │
+       ─────────────┤
+                    │
+                    │ ←─── 0,35–0,45 mm
+                    │      (Feeler gauge ile ölçülür)
+       ─────────────┤
+                    │
+                    └── Hareketli kol
+                    │
+              ╭─────┘
+              │ Kam çıkıntısı (en yüksek nokta)
+```
+
 | Parametre | Değer |
 |---|---|
 | **Platin aralığı** | 0,35–0,45 mm (nominal 0,4 mm) |
@@ -115,6 +189,56 @@ MZ'de elektronik ateşleme **1987** yılında ETZ 250e modeli ile tanıtılmış
 ---
 
 ## Buji (Zündkerze)
+
+### Buji Yapısı — Görsel
+
+```
+  BUJİ (Zündkerze) — Kesit Görünüm:
+
+    Buji Kablosu Bağlantısı
+            │
+      ╔═════╧═════╗
+      ║  Terminal  ║ ← Buji başlığı (Kerzenstecker)
+      ║   üst uç  ║    Dirençli tip (5 kΩ)
+      ╠═══════════╣
+      ║           ║
+      ║  SERAMİK  ║ ← İzolatör (beyaz porselen)
+      ║  İZOLATÖR ║    Yüksek voltajı izole eder
+      ║           ║    Buji rengi burada okunur!
+      ║           ║
+      ╠═══════════╣
+      ║  ┌─────┐  ║
+      ║  │METAL│  ║ ← Gövde (çelik)
+      ║  │GÖVDE│  ║    Altıgen anahtar boyutu: 21 mm
+      ║  │ ██  │  ║
+      ╠══╧═════╧══╣
+      ║ ╔═══════╗ ║
+      ║ ║ DİŞLİ ║ ║ ← M14 × 1,25 dişli
+      ║ ║  KISIM║ ║    Tork: 20-25 Nm
+      ║ ╚═══════╝ ║
+      ╠═══════════╣
+      ║           ║
+      ║  ──┐ ┌── ║ ← Merkez elektrot (iç)
+      ║    │ │    ║
+      ║    │ │    ║
+      ║    │★│    ║ ← KIVILCIM burada atlar
+      ║    │ │    ║    Elektrot aralığı: 0,5–0,6 mm
+      ║ ───┘ └──  ║ ← Toprak elektrot (dış, bükülmüş)
+      ╚═══════════╝
+
+  ELEKTROT ARALIĞI AYARI:
+
+      Merkez elektrot (sabit)
+           │
+           │  ←── 0,5–0,6 mm ──→  Feeler gauge
+           │                       ile ölçülür
+      ─────┘
+      Toprak elektrot
+      (dikkatlice bükülerek ayarlanır)
+
+      ⚠️ Sadece toprak elektrotu bükün!
+         Merkez elektrota DOKUNMAYIN.
+```
 
 ### Buji Spesifikasyonları
 

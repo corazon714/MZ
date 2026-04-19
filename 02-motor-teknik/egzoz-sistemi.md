@@ -13,15 +13,47 @@ MZ'nin yarış mühendisi **Walter Kaaden**, 1950'lerde 2 zamanlı motorlar içi
 ### Çalışma Prensibi
 
 ```
-                    Konik          Çok Odalı
-Silindir → Başlık → Difüzör → Bariyer → Rezonatör → Çıkış
-(Egzoz     (Krümmer) (genişleyen) (daralma)  (ses        (Endrohr)
- Portu)              bölüm)               sönümleme)
+  REZONANS EGZOZ (Expansion Chamber) — Kesit Görünüm:
 
-Basınç Dalgaları:
-→ → → → → → → →    ← ← ← (geri yansıma)    → → → → → →
-Pozitif dalga        Negatif dalga            Çıkış
-(egzoz gazları)      (taze karışımı geri iter)
+  Silindir                                                        Çıkış
+  Egzoz                                                           (Endrohr)
+  Portu                                                              │
+    │                                                                │
+    │    BAŞLIK        KONİK DİFÜZÖR        KONİK BARİYER    REZONATÖR
+    │   (Krümmer)      (genişleyen)          (daralan)        (ses sönüm)
+    │                                                                │
+    │   ╔═══╗    ╱‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾╲    ╱‾‾‾‾‾‾╗  ╔══════╗    │
+    ├───║   ║───╱                      ╲──╱       ║──║      ║────┤
+    │   ║   ║──╱                        ╲╱        ║  ║      ║    │
+    │   ║   ║─╱         Maksimum         ╲        ║  ║ Çok  ║    │
+    │   ║   ║╱          çap               ╲       ║  ║ odalı║    │
+    │   ║   ║╲                            ╱       ║  ║      ║    │
+    │   ║   ║─╲                          ╱╲       ║  ║      ║    │
+    ├───║   ║──╲                        ╱──╲      ║──║      ║────┤
+    │   ╚═══╝   ╲──────────────────────╱    ╲─────╝  ╚══════╝    │
+    │                                                              │
+    │           │                     │            │               │
+    ▼           ▼                     ▼            ▼               ▼
+
+  BASINÇ DALGASI HAREKETI:
+
+  Zaman 1: Egzoz gazı çıkar
+    →→→→→→→→→→→→→→→→→→→→→→→→→→→→→→→→→→→→→→→→→→
+    Pozitif basınç dalgası ilerler
+
+  Zaman 2: Difüzörde vakum oluşur
+    →→→→→→→→→→→   ←←←←←←←
+    İleri dalga     Negatif dalga (vakum)
+                    Silindirdeki gazları ÇEKer
+
+  Zaman 3: Bariyerden geri yansıma
+    →→→→→→→→→→→→→→→→→   →→→→→→→→→
+                         Pozitif dalga GERİ yansır
+                         Taze karışımı silindire İTER
+
+  ⚠️ Egzoz uzunluğu ve çapları, belirli devir aralığı için
+     optimize edilmiştir. Orijinal egzozu değiştirmek
+     motor performansını BOZAR!
 ```
 
 ### Rezonans Etkisi — Adım Adım

@@ -2,6 +2,72 @@
 
 ## Fren Sistemi Genel Bakış
 
+### Fren Sistemi Düzeni — Görsel
+
+```
+  MZ ETZ 251 FREN SİSTEMİ — Genel Yerleşim:
+
+                  ┌───────────────────┐
+                  │   GİDON           │
+                  │                   │
+      Debriyaj ───┤                   ├─── Ön Fren Kolu
+      (sol el)    │                   │    (sağ el)
+                  └─────────┬─────────┘
+                            │
+                 ┌──────────┴──────────┐
+                 │  Fren Sıvısı       │
+                 │  Haznesi           │
+                 │  ┌──┐              │
+                 │  │≈≈│ DOT 3/4     │
+                 │  └──┘              │
+                 │  Ana Merkez        │
+                 │  (Hauptbremszylinder)
+                 └──────────┬──────────┘
+                            │
+                  Hidrolik hortum
+                  (Bremsleitung)
+                            │
+                            ▼
+        ┌──────── ÖN TEKERLEK ─────────┐
+        │                               │
+        │    ╔═══╗                      │
+        │    ║DİSK║ ← Fren Diski       │
+        │    ║    ║   (Bremsscheibe)    │
+        │    ║    ║                     │
+   ┌────╫────╫────╫────┐               │
+   │ █══╫════╫════╫══█ │ ← KALİPER     │
+   │ █  ║    ║    ║  █ │   (Bremssattel)│
+   │ █══╫════╫════╫══█ │   Balatalar    │
+   └────╫────╫────╫────┘   diski sıkar  │
+        │    ║    ║                     │
+        │    ╚═══╝                      │
+        └───────────────────────────────┘
+
+  ═══════════════════════════════════════
+
+        ┌──────── ARKA TEKERLEK ────────┐
+        │                               │
+        │      ╭───────────────╮        │
+        │     ╱   KAMPANA       ╲       │
+        │    │  ╭─────────╮     │       │
+        │    │  │ BALATA 1 │╮    │       │
+        │    │  │  ←───    ││    │       │
+        │    │  ╰─────────╯│    │       │ ← Kampana Freni
+        │    │   ╭─────────╯    │       │   (Trommelbremse)
+        │    │   │ BALATA 2│    │       │   Ø 160 mm
+        │    │   │    ───→ │    │       │
+        │    │   ╰─────────╯    │       │
+        │     ╲                ╱        │
+        │      ╰───────────────╯        │
+        │              ▲                │
+        └──────────────┼────────────────┘
+                       │
+              Fren çubuğu + yay
+              (mekanik bağlantı)
+                       │
+              Sağ ayak pedalı
+```
+
 | Fren | Tip | Konum |
 |---|---|---|
 | **Ön Fren** | Hidrolik disk fren (standart) veya kampana fren (bazı varyantlar) | Sağ el kolu |
@@ -57,7 +123,46 @@
 | **Değişim aralığı** | Her **2 yılda bir** (nem emer, kaynama noktası düşer) |
 | **Renk** | Temiz: açık sarı; kirli: koyu kahverengi/siyah → değiştir |
 
-#### Fren Sıvısı Değişimi (Bleeding)
+#### Fren Sıvısı Değişimi (Bleeding / Hava Alma)
+
+```
+  FREN HAVA ALMA İŞLEMİ — Şematik Görünüm:
+
+  1. Fren kolunu          2. Basılı tutarken      3. Nipeli kapatın
+     pompala ve              nipeli açın              kolu bırakın
+     basılı tut
+
+   Hazne ┌──┐            Hazne ┌──┐             Hazne ┌──┐
+         │≈≈│ ← Sıvı ek.       │≈≈│                   │≈≈│
+         └┬─┘                   └┬─┘                   └┬─┘
+          │                      │                      │
+   Kol    │                Kol   │                Kol   │
+   ═══█▶──┤ BASILI         ═══█▶──┤ BASILI        ═══──┤ SERBEST
+          │                      │                      │
+          │                      │                      │
+     ┌────┴────┐            ┌────┴────┐            ┌────┴────┐
+     │ Kaliper │            │ Kaliper │            │ Kaliper │
+     │         │            │         │            │         │
+     │    ◉    │ KAPALI     │    ○    │ AÇIK       │    ◉    │ KAPALI
+     └────┬────┘            └────┬────┘            └────┬────┘
+          │                      │                      │
+                            ┌────┴────┐
+                            │ Hortum  │
+                            │ (şeffaf)│
+                            │  ○ ○ ○  │ ← Hava kabarcıkları
+                            │  ↓ ↓ ↓  │   görünür
+                            └────┬────┘
+                            ┌────┴────┐
+                            │ Toplama │
+                            │  kabı   │
+                            └─────────┘
+
+  ⚠️ ALTIN KURAL: Nipeli her zaman KOL BASILIYKEN kapatın!
+     Aksi halde hava sisteme geri kaçar.
+
+  ⚠️ Hazneyi ASLA BOŞALTMAYIN!
+     Boşalırsa havayı tekrar almak çok zordur.
+```
 
 1. Hazne kapağını açın
 2. Kaliperdeki **havalandırma nipelini** (Entlüftungsnippel) bulun

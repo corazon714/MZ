@@ -3,23 +3,62 @@
 ## Hızlı Kontrol Akış Şeması
 
 ```
-MOTOR ÇALIŞMIYOR
-       │
-       ├── Kickstarter sert mi? (Sıkıştırma hissi)
-       │   ├── HAYIR → Sıkıştırma yok → [A] Sıkıştırma Sorunları
-       │   └── EVET → Devam
-       │
-       ├── Buji kıvılcım çakıyor mu?
-       │   │  (Bujiyi sök, gövdeye temas ettir, kickle)
-       │   ├── HAYIR → [B] Ateşleme Sorunları
-       │   └── EVET → Devam
-       │
-       ├── Buji ıslak mı? (Yakıt ulaşıyor mu?)
-       │   ├── HAYIR → [C] Yakıt Sorunları
-       │   └── EVET → Devam (veya aşırı ıslak = boğulmuş)
-       │
-       └── Tüm üçü tamam ama çalışmıyor
-           └── [D] Diğer Nedenler
+  ╔═══════════════════════════════════════════════════════════╗
+  ║              MOTOR ÇALIŞMIYOR — ARIZA TESPİT             ║
+  ╚═══════════════════════╤═══════════════════════════════════╝
+                          │
+                ┌─────────▼─────────┐
+                │ Kickstarter       │
+                │ SERT Mİ?          │
+                │ (Sıkıştırma       │
+                │  hissi var mı?)   │
+                └────┬─────────┬────┘
+                HAYIR│         │EVET
+                     ▼         ▼
+          ┌──────────────┐ ┌──────────────┐
+          │ ⚠️ SIKIŞTIRMA│ │ Bujiyi sök,  │
+          │ SORUNU!      │ │ gövdeye temas│
+          │              │ │ ettir, kickle:│
+          │ → [A] bölümü │ │ KIVILCIM     │
+          │   incele     │ │ VAR MI?      │
+          └──────────────┘ └──┬────────┬──┘
+                          HAYIR│        │EVET
+                               ▼        ▼
+                   ┌──────────────┐ ┌──────────────┐
+                   │ ⚠️ ATEŞLEME │ │ Bujiyi kokla: │
+                   │ SORUNU!     │ │ BUJİ ISLAK MI?│
+                   │             │ │ (yakıt kokusu │
+                   │ → [B] bölümü│ │  var mı?)     │
+                   │   incele    │ └──┬────────┬──┘
+                   └─────────────┘HAYIR│        │EVET
+                                       ▼        ▼
+                          ┌──────────────┐ ┌──────────────┐
+                          │ ⚠️ YAKIT     │ │ ✅ Sıkıştırma│
+                          │ SORUNU!      │ │ ✅ Kıvılcım  │
+                          │              │ │ ✅ Yakıt      │
+                          │ → [C] bölümü │ │               │
+                          │   incele     │ │ → [D] bölümü │
+                          └──────────────┘ │   incele     │
+                                           └──────────────┘
+
+  ═══════════════════════════════════════════════════════════
+
+  3 TEMEL GEREKSINIM — Motor çalışması için HEPSİ gerekli:
+
+  ┌────────────┐   ┌────────────┐   ┌────────────┐
+  │ 1. SIKIŞ-  │   │ 2. KIVILCIM│   │ 3. YAKIT   │
+  │    TIRMA   │   │            │   │            │
+  │   ┌────┐   │   │    ★       │   │   ╭─╮     │
+  │   │ ▲▼ │   │   │   ╱ ╲     │   │   │≈│     │
+  │   │PIS-│   │   │  ╱   ╲    │   │   │≈│     │
+  │   │TON │   │   │ Buji      │   │   ╰─╯     │
+  │   └────┘   │   │            │   │ Benzin    │
+  │            │   │            │   │            │
+  │ Silindir   │   │ Doğru      │   │ Doğru     │
+  │ sızdırmaz  │   │ zamanda    │   │ oranda    │
+  │ olmalı     │   │ güçlü      │   │ ulaşmalı  │
+  │            │   │ kıvılcım   │   │            │
+  └────────────┘   └────────────┘   └────────────┘
 ```
 
 ---

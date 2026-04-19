@@ -7,28 +7,50 @@ MZ ETZ 251'in EM 251 motoru, **2 zamanlı** (2-stroke / Zweitakt) bir benzinli m
 ### 2 Zamanlı Çevrim Aşamaları
 
 ```
-AŞAMA 1: SIKIŞIRMA + EME (Piston yukarı hareket eder)
-┌─────────────────────────────────┐
-│  Piston yukarı çıkar:           │
-│  • Üstte: Yakıt-hava karışımı   │
-│    sıkıştırılır                  │
-│  • Altta: Karter boşluğunda      │
-│    vakum oluşur → emme portu     │
-│    açılır → yeni karışım         │
-│    kartere çekilir               │
-└─────────────────────────────────┘
+  AŞAMA 1: SIKIŞTIRMA + EMME           AŞAMA 2: PATLAMA + SÜPÜRME
+  (Piston YUKARI hareket eder)          (Piston AŞAĞI hareket eder)
 
-AŞAMA 2: PATLAMA + SÜPÜRME (Piston aşağı hareket eder)
-┌─────────────────────────────────┐
-│  Buji ateşler → patlama:        │
-│  • Piston aşağı itilir           │
-│  • Egzoz portu açılır → yanmış   │
-│    gazlar çıkar                  │
-│  • Süpürme kanalları açılır →    │
-│    karterdeki taze karışım       │
-│    silindire girer               │
-│  • Altta: Karter basıncı artar   │
-└─────────────────────────────────┘
+  ┌──────────────────────┐              ┌──────────────────────┐
+  │     ★ Buji ★         │              │     ★ BUJİ ATEŞLER ★│
+  │   ┌──────────────┐   │              │   ┌──────────────┐   │
+  │   │ ░░░░░░░░░░░░ │   │              │   │ ▓▓▓▓▓▓▓▓▓▓▓▓ │   │
+  │   │ ░ Karışım   ░│   │              │   │ ▓ Patlama!  ▓ │   │
+  │   │ ░ sıkışıyor ░│   │              │   │ ▓ Basınç↓   ▓ │   │
+  │   │ ░░░░░░░░░░░░ │   │              │   │ ▓▓▓▓▓▓▓▓▓▓▓▓ │   │
+  │   └───────┬──────┘   │              │   │              │   │
+  │           │           │              │   │  Egzoz       │ ══►
+  │ KAPAL ┌───┴────┐KAPAL│              │ AÇIK┌──────────┐AÇIK
+  │   I   │PISTON ▲│  I  │              │     │PISTON ▼  │    │
+  │  Sü-  │  ████  │ Eg- │              │ Sü- │  ████   │ Eg-│
+  │  pür-  │  ████  │ zoz │              │ pür- │  ████   │ zoz│
+  │  me    └───┬────┘Port │              │  me  └───┬────┘Port│
+  │  ka-       │     u    │              │  ka-      │        │
+  │  nal-      │          │              │  nal-     │        │
+  │  ları     │          │              │  ları    │        │
+  │   │   KARTER  │   │   │              │   │  KARTER  │   │  │
+  │   │  (vakum   │   │   │              │   │ (basınç  │   │  │
+  │   │  oluşur)  │   │   │              │   │ oluşur)  │   │  │
+  │   │     ↑     │   │   │              │   │    ↑     │   │  │
+  └───┼─────┼─────┼───┼───┘              └───┼────┼─────┼───┼──┘
+      │  Emme     │                          │   │     │
+      │  portu    │                          │   │     │
+      │  AÇIK     │                          │   │     │
+      ▼           │                          │   ▼     │
+   Taze karışım   │                      Taze karışım  │
+   kartere girer  │                      silindire     │
+                  │                      girer (süpürme)│
+
+  ═══════════════════════════════════════════════════════════
+
+  ÖZET: 1 TAM KRANK DEVRİ = 1 GÜÇ DARBESİ (360°)
+
+  Krank açısı:   0°    90°    180°   270°   360°
+                 │      │      │      │      │
+                 ▼      ▼      ▼      ▼      ▼
+  Piston:      [ÜÖN]  [aşağı] [AÖN] [yukarı][ÜÖN]
+  Silindir:    sıkış   patla   süpür  sıkış   sıkış
+  Karter:      emme    basınç  basınç emme    emme
+                │◄── GÜÇ ──►│◄── HAZIRLAMA ──►│
 ```
 
 ### 4 Zamanlı ile Karşılaştırma
@@ -52,22 +74,60 @@ EM 251 motoru, MZ serisinde **ilk kez ETZ 250 ile tanıtılan** 4 kanal ters sü
 ### Süpürme Kanallarının İşlevi
 
 ```
-         ┌───────────────┐
-         │  Silindir Üstü │
-         │   (Buji)       │
-         ├───────────────┤
-    ←Egzoz│               │
-    Portu │   SİLİNDİR    │
-         │               │
-   Kanal 1│    Piston     │Kanal 2
-   ───────│     ↑↓        │───────
-   Kanal 3│               │Kanal 4
-         ├───────────────┤
-         │  Karter        │ ← Emme Portu
-         └───────────────┘
+  4 KANAL TERS SÜPÜRME — Silindir Üstten Kesit Görünüm:
 
-4 süpürme kanalı: Silindirin her iki yanında ikişer kanal
-Ters süpürme: Taze gaz, egzoz portunun karşısından girer
+              EGZOZ PORTU
+              (Auslasskanal)
+                 ╔═══╗
+                 ║   ║
+                 ║ ↑ ║  ← Yanmış gazlar ÇIKAR
+                 ║ ↑ ║
+        ╔════════╩═══╩════════╗
+        ║                     ║
+        ║  ↑               ↑  ║
+   K.1──║→ ↑   SİLİNDİR   ↑ ←║──K.2
+        ║  ↑               ↑  ║
+        ║  ↑    (üstten    ↑  ║
+        ║   ↑    bakış)   ↑   ║
+   K.3──║→   ↑           ↑  ←║──K.4
+        ║      ↑       ↑      ║
+        ║        ╲   ╱        ║
+        ║         ╲ ╱         ║
+        ╚═════════════════════╝
+
+  K.1, K.2 = Birincil süpürme kanalları
+  K.3, K.4 = İkincil süpürme kanalları
+  →  = Taze karışım giriş yönü
+  ↑  = Taze karışım yükselme yönü
+
+  TERS SÜPÜRME PRENSİBİ (yandan kesit):
+
+     ┌───────────────────────┐
+     │      Buji              │
+     │   ┌───────────┐       │
+     │   │ ↙ Taze    │↖      │
+     │   │↙  gaz     │  ↖    │
+     │   │  yukarı   │    ↖  │
+     │   │  yükselir │      →│── EGZOZ
+     │   │↗          │  Yanmış    PORTU
+     │   │  ↗        │  gaz     (çıkış)
+     │   │    ↗      │  itilir ↗│
+     │   └───────────┘        │
+     │   │ Piston    │        │
+     ├───┤           ├────────┤
+     │↗  │           │        │
+  K.1│   │           │        │K.2
+     │↗  │           │        │
+  K.3│   │  KARTER   │        │K.4
+     └───┴───────────┴────────┘
+          (basınç ↑)
+
+  Akış: Karter → Kanallar → Silindir karşı duvarı →
+        Yukarı yükselir → Egzoz portuna doğru süpürür
+
+  ⚠️ Anahtar tasarım: Kanallar EĞIMLI açılır
+      → Taze gaz doğrudan egzozdan KAÇMAZ
+      → Short-circuiting minimumda tutulur
 ```
 
 ### Ters Süpürme (Umkehrspülung) Prensibi

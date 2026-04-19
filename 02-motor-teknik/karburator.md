@@ -15,37 +15,87 @@
 
 ## Karbüratörün Yapısı
 
-### Ana Bileşenler
+### BVF 30 N 3-1 — Patlatılmış Görünüm (Explosionszeichnung)
 
 ```
-┌──────────────────────────────────────┐
-│           HAVA GİRİŞİ               │
-│  (Luftfiltergehäuse'den gelir)       │
-└──────────────┬───────────────────────┘
-               ↓
-┌──────────────────────────────────────┐
-│         KARBURATöR GÖVDE             │
-│                                      │
-│  ┌─────────┐  ┌──────────────────┐   │
-│  │ Jikle   │  │ Sürgülü Piston   │   │
-│  │ (Choke) │  │ (Gasschieber)    │   │
-│  └─────────┘  │  ↕ Gaz kolu ile  │   │
-│               │    kontrol       │   │
-│  ┌─────────┐  └──────────────────┘   │
-│  │ Ana Jikle│                        │
-│  │ (Hauptdüse)                       │
-│  └─────────┘                         │
-│               │                      │
-│  ┌─────────┐  ┌──────────────────┐   │
-│  │ Rölanti  │  │ Şamandıra Odası │   │
-│  │ Devresi  │  │ (Schwimmerkammer)│   │
-│  └─────────┘  └──────────────────┘   │
-└──────────────┬───────────────────────┘
-               ↓
-┌──────────────────────────────────────┐
-│      EMME MANIFOLDU (Kauçuk)         │
-│      → SİLİNDİR EME PORTU           │
-└──────────────────────────────────────┘
+  ═══════════════════════════════════════════════
+  BVF 30 N 3-1 PARÇALARI — Yukarıdan Aşağıya
+  ═══════════════════════════════════════════════
+
+  1. ÜST KAPAK (Vergaserdeckel)
+     ┌────────────────┐
+     │  ╔════════╗    │ ← Gaz kablosu bağlantısı
+     │  ║ Kablo  ║    │
+     │  ║ geçişi ║    │
+     │  ╚═══╤════╝    │
+     │      │         │
+     └──────┼─────────┘
+            │ ← Yay (Rückholfeder)
+            │    Sürgüyü aşağı iter
+     ╭──────┴──────╮
+     │ ≋≋≋≋≋≋≋≋≋≋≋ │ ← Yay
+     │ ≋≋≋≋≋≋≋≋≋≋≋ │
+     ╰──────┬──────╯
+            │
+  2. SÜRGÜLÜ PİSTON (Gasschieber)
+     ┌──────┴──────┐
+     │  ┌───────┐  │
+     │  │ İĞNE  │  │ ← Düsennadel, sürgü içine
+     │  │ klipsi │  │    klipsle sabitlenir
+     │  └───┬───┘  │
+     │      │      │ ← Silindirik sürgü gövdesi
+     │      │      │    Karbüratör boğazında
+     │      │      │    yukarı/aşağı kayar
+     └──────┼──────┘
+            │
+  3. İĞNE (Düsennadel)
+     ┌──────┤
+     │      │ ← Düz gövde
+     │      │
+     │     ╱ ╲ ← Konik uç
+     │    ╱   ╲    (jikle içinde
+     │   ╱  ●  ╲   oturur)
+     └──┘
+            │
+            ▼
+  4. GÖVDE (Vergaserkörper)
+     ╔══════════════════════════╗
+     ║  ┌─── Hava kanalı ───┐  ║ ← 30 mm çap
+     ║  │                    │  ║
+     ║  │   (A)──┐    ┌──   │  ║ (A) Rölanti durdurucu
+     ║  │        │    │      │  ║ (B) Karışım vidası
+     ║  │   (B)──┘    │      │  ║
+     ║  └──────────────┘      ║
+     ║                         ║
+     ║    ┌──┐ ← İğne Jiklesi  ║
+     ║    │  │   (Nadeldüse)    ║
+     ║    └──┘                  ║
+     ║    ┌──┐ ← Ana Jikle     ║
+     ║    │  │   (Hauptdüse)    ║
+     ║    └──┘                  ║
+     ║    ┌──┐ ← Rölanti       ║
+     ║    │  │   Jiklesi        ║
+     ║    └──┘   (Leerlaufdüse)║
+     ╚══════════╤═══════════════╝
+                │
+  5. ŞAMANDIRA ODASI (Schwimmerkammer)
+     ┌──────────┴──────────┐
+     │  ┌──╮          ╭──┐│
+     │  │  │ Şamandıra│  ││ ← Plastik/pirinç
+     │  │  ╰──────────╯  ││
+     │  └─────────────────┘│
+     │         ●            │ ← Şamandıra valfi (iğne)
+     │    ┌────┴────┐       │
+     │    │  Yakıt  │       │ ← Yakıt giriş nipeli
+     │    │  giriş  │       │
+     │    └─────────┘       │
+     └─────────────────────┘
+
+  6. ALT KAPAK
+     ┌─────────────────────┐
+     │   Cıvata ile        │
+     │   gövdeye bağlanır  │
+     └─────────────────────┘
 ```
 
 ### Ana Parçalar Listesi
@@ -69,23 +119,122 @@
 
 Karbüratör, motor devrine ve gaz konumuna göre farklı devreler üzerinden çalışır:
 
+```
+  KARBÜRATÖR DEVRE ALANLARI — Gaz Konumuna Göre Aktif Sistemler:
+
+  Gaz        0%        15%         50%         75%         100%
+  Konumu:    │          │           │           │           │
+             │          │           │           │           │
+  ┌──────────┤          │           │           │           │
+  │ RÖLANTİ  │          │           │           │           │
+  │ DEVRESİ  ├──────────┤           │           │           │
+  │ ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓│           │           │           │
+  └──────────┘          │           │           │           │
+             │          │           │           │           │
+             │ ┌────────┤           │           │           │
+             │ │ İĞNE / │           │           │           │
+             │ │ NADEL   ├──────────┼───────────┤           │
+             │ │ DEVRESİ │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓│           │
+             │ └─────────┘          │           │           │
+             │          │           │           │           │
+             │          │           │  ┌────────┤           │
+             │          │           │  │ ANA     │           │
+             │          │           │  │ JİKLE   ├──────────┤
+             │          │           │  │ DEVRESİ │▓▓▓▓▓▓▓▓▓▓│
+             │          │           │  └─────────┘          │
+             │          │           │           │           │
+             ▼          ▼           ▼           ▼           ▼
+```
+
 ### 1. Rölanti Devresi (Leerlauf) — %0–%15 gaz
+
+```
+  Sürgü neredeyse kapalı:      Rölanti Devresi Akış Yolu:
+
+   ┌──────┐                    Şamandıra → Rölanti → Karışım → Hava
+   │      │                    Odası       Jiklesi    Vidası    Kanalı
+   │      │ ←Sürgü (kapalı)
+   │██████│                    ┌──────┐   ┌──────┐   ┌──────┐   ○
+   │██████│                    │ Yakıt│──→│Rölanti──→│Karışım──→ │
+   ├──────┤ ← Çok dar açıklık │      │   │Jiklesi│   │Vidası │  Motor
+   ║ HAVA ║→    ↓ (B) çıkış   └──────┘   └──────┘   └──────┘
+   ╚══════╝   Rölanti yakıtı           Sabit delik    Ayarlanır
+              buradan çıkar            (değişmez)    (vida ile)
+```
+
 - **Rölanti jiklesi** (Leerlaufdüse) aktif
 - **Rölanti karışım vidası** ile ayarlanır
 - Hava emme portu (Luftbohrung) üzerinden hava eklenir
 - Tipik rölanti devri: **1000–1200 d/d**
 
 ### 2. Kısmi Gaz Devresi (Teillast) — %15–%75 gaz
+
+```
+  Sürgü yarı açık:              İğne/Jikle Çalışması:
+
+   ┌──────┐                        │ Sürgü │
+   │      │ ← Sürgü yukarı         │       │
+   │      │    kalkmış              │  │─│  │ ← İğne
+   │      │                         │  │─│  │
+   ├──════┤ ← Orta açıklık         ╔══╬═╬══╗
+   ║ HAVA ║→                        ║  │╲│  ║ ← Konik bölge
+   ╚══════╝                         ║   ╲   ║   jikle içinde
+                                    ╚══════╝
+   İğne konik bölgesi iğne         Açıklık = yakıt miktarı
+   jiklesi içinde — açıklık        (klips ile ayarlanır)
+   kısmi gaz karışımını
+   belirler
+```
+
 - **İğne** (Düsennadel) ve **iğne jiklesi** (Nadeldüse) aktif
 - İğne konumu (klips pozisyonu) karışım zenginliğini belirler
 - İğne yukarı → daha zengin, iğne aşağı → daha fakir
 
 ### 3. Tam Gaz Devresi (Volllast) — %75–%100 gaz
+
+```
+  Sürgü tamamen açık:           Ana Jikle Çalışması:
+
+   ┌──────┐                     │ Sürgü │ ← Tamamen yukarıda
+   │      │                     │       │
+   │      │                     │  │─│  │ ← İğne tamamen
+   │      │                     │  │─│  │    kalkmış
+   │      │                     ╔══╬═╬══╗
+   │      │                     ║  │ │  ║ ← İğne jikleyi
+   │      │← Sürgü tamamen      ║  │ │  ║   sınırlamıyor
+   ├──════┤  yukarıda           ╔══╬═╬══╗
+   ║ HAVA ║→ Maksimum hava      ║  ■─■  ║ ← ANA JİKLE
+   ╚══════╝                     ╚══════╝   Sabit delik çapı
+                                            = maksimum yakıt
+   En fazla yakıt tüketimi                  akışını belirler
+   bu bölgede gerçekleşir
+```
+
 - **Ana jikle** (Hauptdüse) tam akış kapasitesiyle çalışır
 - İğne tamamen kalkmış durumda, akışı sınırlamaz
 - En fazla yakıt tüketimi bu bölgede
 
 ### 4. Soğuk Çalıştırma (Kaltstart / Choke)
+
+```
+  JİKLE KAPAL                  JİKLE AÇIK (normal)
+
+  ╔═══════╗                    ╔═══════════════╗
+  ║       ║                    ║               ║
+  ║ ▓▓▓▓▓ ║ ← Hava girişi     ║               ║ ← Hava serbestçe
+  ║ ▓▓▓▓▓ ║   neredeyse       ║     HAVA →    ║   girer
+  ║ ▓▓▓▓▓ ║   tamamen         ║               ║
+  ╚═══════╝   kapalı          ╚═══════════════╝
+
+  = ÇOK ZENGİN karışım        = NORMAL karışım
+  Soğuk çalıştırma için         Normal sürüş
+
+  ⚠️ Motor ısındıktan sonra
+     JİKLE MUTLAKA AÇILMALI!
+     Aksi halde buji ıslanır,
+     aşırı yakıt tüketilir.
+```
+
 - **Jikle levyesi** (Startklappe) kapatılır
 - Hava girişi kısıtlanır → çok zengin karışım oluşur
 - Motor ısındıktan sonra jikle **açılmalıdır**

@@ -12,6 +12,53 @@ Elektronik ateşlemeli ETZ 251 modellerde ateşleme zamanlaması **fabrika ayarl
 
 ### Kontrol Prosedürü
 
+```
+  ATEŞLEME ZAMANLAMA ÖLÇÜMÜ — Milimetrik Gösterge ile:
+
+  Buji deliğinden gösterge yerleştirilir:
+
+    ┌───────────┐
+    │ Dial Gauge│
+    │  ┌─────┐  │
+    │  │ 0.0 │  │ ← Sıfırlama: Piston ÜÖN'deyken
+    │  └──┬──┘  │
+    │     │     │
+    └─────┼─────┘
+          │ ← Ölçüm çubuğu
+    ╔═════╧═════╗
+    ║ Buji      ║
+    ║ Deliği    ║
+    ╠═══════════╣
+    ║           ║
+    ║  ┌─────┐  ║
+    ║  │PISTON│  ║ ← Piston konumu ölçülür
+    ║  │      │  ║
+    ║  └─────┘  ║
+    ╚═══════════╝
+
+  ATEŞLEME ANI:
+
+          ÜÖN (OT)
+            │
+    ────────┼───────── Silindir üst kenarı
+            │
+    ┌───────┤
+    │ Piston│ ← Piston ÜÖN'den 1,8-2,2 mm aşağıda
+    │       │    Bu anda buji ateşlemeli!
+    │       │
+    │       │
+    └───────┘
+      ↕
+    1,8-2,2 mm = DOĞRU ATEŞleme avansı
+
+  ÇOK ERKEN (<2,2 mm):        DOĞRU (1,8-2,2 mm):      ÇOK GEÇ (>1,8 mm):
+  Piston çok aşağıda           Piston doğru konumda     Piston ÜÖN'e çok yakın
+
+  ⚠️ Detonasyon riski!        ✅ İdeal yanma            ⚠️ Güç kaybı
+  Metalik çınlama                                        Motor tembel çalışır
+  Aşırı ısınma                                           Yakıt tüketimi artar
+```
+
 1. Bujiyi sökün
 2. Buji deliğinden bir **milimetrik gösterge** (dial gauge) yerleştirin
 3. Krank milini yavaşça çevirerek pistonu **ÜÖN** (üst ölü nokta / OT) konumuna getirin

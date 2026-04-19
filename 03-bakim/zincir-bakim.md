@@ -4,6 +4,46 @@
 
 MZ ETZ 251, **tamamen kapalı** (vollgekapselt) ikincil zincir sistemi kullanır. Zincir, kauçuk hortumlar ve duroplast bir kutu içinde dış etkilerden korunur.
 
+### Kapalı Zincir Sistemi — Görsel
+
+```
+  MZ ETZ 251 KAPALI ZİNCİR SİSTEMİ — Yandan Görünüm:
+
+         Şanzıman                              Arka Tekerlek
+         çıkışı                                nabı
+
+      ┌────┐                                   ┌────────┐
+      │ÖN  │    Kauçuk Kılıf                   │ ARKA   │
+      │DİŞLİ────(Kettenschutzschlauch)──────────│ DİŞLİ  │
+      │(Rit-│══════════════════════════════════│(Ketten-│
+      │zel) │    Zincir bu kılıf              │ rad)   │
+      │    │    içinde çalışır                │        │
+      │    ────────────────────────────────────│        │
+      └────┘    (alt kısım)                    └────────┘
+                                                  │
+                                           ┌──────┴──────┐
+                                           │ Zincir Kutusu│
+                                           │ (Kettenkasten)
+                                           │ Duroplast    │
+                                           └─────────────┘
+
+  KESİT GÖRÜNÜM (Kılıf içi):
+
+      ╔═══════════════════════════╗
+      ║  Kauçuk Kılıf (hortum)   ║
+      ║  ┌───────────────────┐   ║
+      ║  │ ○─○─○─○─○─○─○─○  │   ║ ← Rulo zincir (Rollenkette)
+      ║  │ Yağ/gres tabakası │   ║    kılıf içinde korunarak
+      ║  └───────────────────┘   ║    çalışır
+      ╚═══════════════════════════╝
+
+  AVANTAJLAR:
+  ✓ Toz, çamur, su zincire ulaşamaz
+  ✓ Yağlama çok daha uzun süre etkili
+  ✓ Zincir ömrü 2-3 kat daha uzun
+  ✓ Bakım ihtiyacı az
+```
+
 ### Sistem Bileşenleri
 
 | Bileşen | Açıklama |
@@ -22,6 +62,32 @@ MZ ETZ 251, **tamamen kapalı** (vollgekapselt) ikincil zincir sistemi kullanır
 Her **2500 km**'de bir veya titreşim/ses artarsa.
 
 ### Doğru Gerginlik
+
+```
+  ZİNCİR GERGİNLİĞİ ÖLÇÜMÜ:
+
+  Ön dişli                                    Arka dişli
+  (Ritzel)                                    (Kettenrad)
+
+   ┌───┐ ═══════════════════════════════════ ┌───────┐
+   │   │ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ │       │
+   │   │         ↕ 15-20 mm sarkma          │       │
+   │   │ ─ ─ ─╲─ ─ ─ ─ ─ ─ ─ ─ ─╱─ ─ ─ ─ │       │
+   │   │ ═══════════════════════════════════ │       │
+   └───┘         ▲ Orta nokta ▲              └───────┘
+                 Parmakla hafifçe
+                 bastırarak ölçün
+
+  ÇOK GERGİN (< 15 mm):     DOĞRU (15-20 mm):     ÇOK GEVŞEK (> 20 mm):
+
+   ═══════════════════       ═════════════════      ═════════════════
+   ─────────────────── < 5mm ─ ─ ─ ─╲   ╱─ ─ ─    ─ ─╲           ╱─
+   ═══════════════════       ═══════════════════     ═══╲═════════╱══
+
+   ⚠️ Yatak, dişli ve        ✅ İdeal                ⚠️ Zincir atlama
+   zincir aşınması artar                             ve ses riski!
+```
+
 Zincirin üst bölgesinin (ön-arka dişli arasında) **orta noktasında**:
 - Sarkma miktarı: **15–20 mm** (parmakla hafifçe bastırıldığında)
 - Çok gergin → dişli, yatak ve zincir aşınması artar
@@ -29,9 +95,34 @@ Zincirin üst bölgesinin (ön-arka dişli arasında) **orta noktasında**:
 
 ### Ayar Prosedürü
 
+```
+  ARKA TEKERLEK AKS AYAR SİSTEMİ:
+
+       Şasi (salıncak kolu)
+       ╔══════════════════════════════╗
+       ║              │               ║
+       ║    Sol       │     Sağ       ║
+       ║    Ayar      │     Ayar      ║
+       ║    Vidası    │     Vidası    ║
+       ║    ┌──┐    ┌─┴──┐   ┌──┐    ║
+       ║    │ ←├────┤AKS ├───┤→ │    ║
+       ║    └──┘    └─┬──┘   └──┘    ║
+       ║              │               ║
+       ║      ☆ Eşit ayar!  ☆        ║
+       ║    Sol = Sağ olmalı          ║
+       ╚══════════════════════════════╝
+
+  Ayar vidaları sıkıldıkça (→ yönü)
+  aks geriye kayar → zincir gerilir
+
+  ⚠️ Her iki taraf EŞİT olmalı!
+     Eşit değilse arka tekerlek
+     eğrilir → tehlikeli!
+```
+
 1. Motosikleti merkez sehpaya alın
 2. Arka tekerlek aksını **gevşetin** (her iki taraftaki somunlar)
-3. Aks ayar vidalanını (Kettenspanner) eşit miktarda sıkarak zinciri gerin
+3. Aks ayar vidalarını (Kettenspanner) eşit miktarda sıkarak zinciri gerin
 4. Her iki taraftaki ayar **eşit** olmalı (arka tekerlek hizalaması için)
 5. Sarkma miktarını **15–20 mm** olarak ayarlayın
 6. Arka tekerlek aks somunlarını **sıkın**
