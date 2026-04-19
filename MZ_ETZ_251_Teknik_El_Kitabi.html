@@ -7,29 +7,17 @@
   @page {
     size: A4;
     margin: 20mm 18mm 25mm 18mm;
-    @bottom-center {
-      content: counter(page);
-      font-family: 'Liberation Serif', 'DejaVu Serif', serif;
-      font-size: 10pt;
-      color: #333;
-    }
-    @top-center {
-      content: "MZ ETZ 251 — Motor Teknik El Kitabı";
-      font-family: 'Liberation Serif', 'DejaVu Serif', serif;
-      font-size: 8pt;
-      color: #999;
-    }
   }
 
-  @page :first {
-    @top-center { content: none; }
-    @bottom-center { content: none; }
-  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  .ch-marker {
+    font-size: 0.5pt;
+    color: white;
+    line-height: 0.5pt;
+    display: inline-block;
+    width: 0;
+    white-space: nowrap;
   }
 
   body {
@@ -44,298 +32,119 @@
   /* Cover Page */
   .cover-page {
     page-break-after: always;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    text-align: center;
-    padding: 40mm 20mm;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    min-height: 100vh; text-align: center; padding: 40mm 20mm;
   }
-
-  .cover-page h1 {
-    font-size: 28pt;
-    font-weight: bold;
-    margin-bottom: 8mm;
-    color: #111;
-    letter-spacing: 1px;
-  }
-
-  .cover-page h2 {
-    font-size: 16pt;
-    font-weight: normal;
-    margin-bottom: 15mm;
-    color: #333;
-  }
-
-  .cover-page .subtitle {
-    font-size: 12pt;
-    color: #555;
-    margin-bottom: 5mm;
-  }
-
-  .cover-page .info {
-    font-size: 10pt;
-    color: #777;
-    margin-top: 30mm;
-    line-height: 1.8;
-  }
-
-  .cover-line {
-    width: 60%;
-    height: 2px;
-    background: #333;
-    margin: 10mm auto;
-  }
+  .cover-page h1 { font-size: 28pt; font-weight: bold; margin-bottom: 8mm; color: #111; letter-spacing: 1px; }
+  .cover-page h2 { font-size: 16pt; font-weight: normal; margin-bottom: 15mm; color: #333; }
+  .cover-page .subtitle { font-size: 12pt; color: #555; margin-bottom: 5mm; }
+  .cover-page .info { font-size: 10pt; color: #777; margin-top: 30mm; line-height: 1.8; }
+  .cover-line { width: 60%; height: 2px; background: #333; margin: 10mm auto; }
 
   /* TOC Page */
-  .toc-page {
-    page-break-after: always;
-    padding-top: 10mm;
-  }
-
+  .toc-page { page-break-after: always; padding-top: 10mm; }
   .toc-page h1 {
-    font-size: 18pt;
-    text-align: center;
-    margin-bottom: 10mm;
-    color: #111;
-    border-bottom: 2px solid #333;
-    padding-bottom: 3mm;
+    font-size: 18pt; text-align: center; margin-bottom: 10mm; color: #111;
+    border-bottom: 2px solid #333; padding-bottom: 3mm;
   }
+  .toc-page ul { list-style: none; padding: 0; }
 
-  .toc-page ul {
-    list-style: none;
-    padding: 0;
-  }
-
-  .toc-section {
-    margin-top: 5mm;
-    margin-bottom: 2mm;
-  }
-
+  .toc-section { margin-top: 5mm; margin-bottom: 2mm; }
   .toc-section a {
-    font-weight: bold;
-    font-size: 11pt;
-    color: #111;
-    text-decoration: none;
+    font-weight: bold; font-size: 11pt; color: #111; text-decoration: none;
+    display: flex; justify-content: space-between; align-items: baseline;
   }
 
-  .toc-chapter {
-    margin-left: 8mm;
-    margin-bottom: 1mm;
-  }
-
+  .toc-chapter { margin-left: 8mm; margin-bottom: 1.5mm; }
   .toc-chapter a {
-    font-size: 10pt;
-    color: #333;
-    text-decoration: none;
+    font-size: 10pt; color: #333; text-decoration: none;
+    display: flex; align-items: baseline;
   }
 
-  .toc-chapter a::after {
-    content: leader(".");
+  .toc-title {
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .toc-title::after {
+    content: " . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .";
+    font-size: 8pt;
+    letter-spacing: 1px;
+    color: #999;
+    overflow: hidden;
+    display: inline;
+    white-space: nowrap;
+  }
+
+  .toc-page-num {
+    font-weight: bold;
+    min-width: 2.5em;
+    text-align: right;
+    flex-shrink: 0;
+    padding-left: 3mm;
+    color: #111;
+  }
+
+  .toc-section .toc-page-num {
+    font-size: 11pt;
   }
 
   /* Section Break */
   .section-break {
-    page-break-before: always;
-    padding-top: 30mm;
-    text-align: center;
-    min-height: 60mm;
+    page-break-before: always; padding-top: 30mm; text-align: center; min-height: 60mm;
   }
-
   .section-title {
-    font-size: 20pt;
-    font-weight: bold;
-    color: #111;
-    border-bottom: 3px solid #333;
-    padding-bottom: 4mm;
-    display: inline-block;
-    letter-spacing: 1.5px;
+    font-size: 20pt; font-weight: bold; color: #111;
+    border-bottom: 3px solid #333; padding-bottom: 4mm; display: inline-block; letter-spacing: 1.5px;
   }
 
   /* Chapter */
-  .chapter {
-    page-break-before: always;
-  }
-
-  .chapter:first-of-type {
-    page-break-before: auto;
-  }
+  .chapter { page-break-before: always; }
+  .chapter:first-of-type { page-break-before: auto; }
 
   /* Headings */
-  h1 {
-    font-size: 16pt;
-    font-weight: bold;
-    margin-top: 6mm;
-    margin-bottom: 4mm;
-    color: #111;
-    border-bottom: 1.5px solid #555;
-    padding-bottom: 2mm;
-    page-break-after: avoid;
-  }
+  h1 { font-size: 16pt; font-weight: bold; margin-top: 6mm; margin-bottom: 4mm; color: #111; border-bottom: 1.5px solid #555; padding-bottom: 2mm; page-break-after: avoid; }
+  h2 { font-size: 13pt; font-weight: bold; margin-top: 5mm; margin-bottom: 3mm; color: #222; page-break-after: avoid; }
+  h3 { font-size: 11.5pt; font-weight: bold; margin-top: 4mm; margin-bottom: 2mm; color: #333; page-break-after: avoid; }
+  h4 { font-size: 10.5pt; font-weight: bold; margin-top: 3mm; margin-bottom: 1.5mm; color: #444; page-break-after: avoid; }
 
-  h2 {
-    font-size: 13pt;
-    font-weight: bold;
-    margin-top: 5mm;
-    margin-bottom: 3mm;
-    color: #222;
-    page-break-after: avoid;
-  }
-
-  h3 {
-    font-size: 11.5pt;
-    font-weight: bold;
-    margin-top: 4mm;
-    margin-bottom: 2mm;
-    color: #333;
-    page-break-after: avoid;
-  }
-
-  h4 {
-    font-size: 10.5pt;
-    font-weight: bold;
-    margin-top: 3mm;
-    margin-bottom: 1.5mm;
-    color: #444;
-    page-break-after: avoid;
-  }
-
-  /* Paragraphs */
-  p {
-    margin-bottom: 2.5mm;
-    orphans: 3;
-    widows: 3;
-  }
+  p { margin-bottom: 2.5mm; orphans: 3; widows: 3; }
 
   /* Tables */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 3mm 0 4mm 0;
-    font-size: 9.5pt;
-    page-break-inside: auto;
-  }
-
-  thead {
-    display: table-header-group;
-  }
-
-  tr {
-    page-break-inside: avoid;
-  }
-
-  th, td {
-    border: 0.5pt solid #888;
-    padding: 1.5mm 2.5mm;
-    text-align: left;
-    vertical-align: top;
-  }
-
-  th {
-    background-color: #e8e8e8;
-    font-weight: bold;
-    color: #111;
-  }
-
-  tr:nth-child(even) {
-    background-color: #f7f7f7;
-  }
+  table { width: 100%; border-collapse: collapse; margin: 3mm 0 4mm 0; font-size: 9.5pt; page-break-inside: auto; }
+  thead { display: table-header-group; }
+  tr { page-break-inside: avoid; }
+  th, td { border: 0.5pt solid #888; padding: 1.5mm 2.5mm; text-align: left; vertical-align: top; }
+  th { background-color: #e8e8e8; font-weight: bold; color: #111; }
+  tr:nth-child(even) { background-color: #f7f7f7; }
 
   /* Code blocks (ASCII diagrams) */
   pre {
     font-family: 'Noto Sans Mono', 'DejaVu Sans Mono', 'Liberation Mono', monospace;
-    font-size: 7.8pt;
-    line-height: 1.25;
-    background-color: #f5f5f5;
-    border: 0.5pt solid #ccc;
-    padding: 3mm;
-    margin: 3mm 0;
-    overflow-x: visible;
-    white-space: pre;
-    page-break-inside: auto;
+    font-size: 7.8pt; line-height: 1.25; background-color: #f5f5f5;
+    border: 0.5pt solid #ccc; padding: 3mm; margin: 3mm 0;
+    overflow-x: visible; white-space: pre; page-break-inside: auto;
   }
+  code { font-family: 'Noto Sans Mono', 'DejaVu Sans Mono', 'Liberation Mono', monospace; font-size: 9pt; background-color: #f0f0f0; padding: 0 1mm; border-radius: 1mm; }
+  pre code { background: none; padding: 0; font-size: inherit; }
 
-  code {
-    font-family: 'Noto Sans Mono', 'DejaVu Sans Mono', 'Liberation Mono', monospace;
-    font-size: 9pt;
-    background-color: #f0f0f0;
-    padding: 0 1mm;
-    border-radius: 1mm;
-  }
+  ul, ol { margin: 2mm 0 2mm 6mm; padding-left: 4mm; }
+  li { margin-bottom: 1mm; }
 
-  pre code {
-    background: none;
-    padding: 0;
-    font-size: inherit;
-  }
+  blockquote { border-left: 3pt solid #888; margin: 3mm 0; padding: 2mm 4mm; background-color: #f9f9f9; font-style: italic; color: #333; page-break-inside: avoid; }
+  blockquote p { margin-bottom: 1mm; }
 
-  /* Lists */
-  ul, ol {
-    margin: 2mm 0 2mm 6mm;
-    padding-left: 4mm;
-  }
+  strong { font-weight: bold; color: #000; }
+  em { font-style: italic; }
+  hr { border: none; border-top: 0.5pt solid #aaa; margin: 4mm 0; }
+  a { color: #111; text-decoration: none; }
+  img { max-width: 100%; height: auto; }
 
-  li {
-    margin-bottom: 1mm;
-  }
-
-  /* Blockquotes */
-  blockquote {
-    border-left: 3pt solid #888;
-    margin: 3mm 0;
-    padding: 2mm 4mm;
-    background-color: #f9f9f9;
-    font-style: italic;
-    color: #333;
-    page-break-inside: avoid;
-  }
-
-  blockquote p {
-    margin-bottom: 1mm;
-  }
-
-  /* Strong and emphasis */
-  strong {
-    font-weight: bold;
-    color: #000;
-  }
-
-  em {
-    font-style: italic;
-  }
-
-  /* Horizontal rules */
-  hr {
-    border: none;
-    border-top: 0.5pt solid #aaa;
-    margin: 4mm 0;
-  }
-
-  /* Links - remove for print */
-  a {
-    color: #111;
-    text-decoration: none;
-  }
-
-  /* Images */
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  /* Print optimizations */
   @media print {
-    body {
-      -webkit-print-color-adjust: exact;
-      print-color-adjust: exact;
-    }
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   }
 
-  /* Bibliography styling */
-  .chapter:last-child h1 {
-    text-align: center;
-  }
+  .chapter:last-child h1 { text-align: center; }
 </style>
 </head>
 <body>
@@ -359,58 +168,59 @@
 <div class="toc-page">
   <h1>İÇİNDEKİLER</h1>
   <ul>
-    <li class="toc-section"><a href="#section-01-tanitim">BÖLÜM 1 — TANITIM</a></li>
-<li class="toc-chapter"><a href="#chapter-1">MZ ETZ 251 — Tarihçe</a></li>
-<li class="toc-chapter"><a href="#chapter-2">MZ ETZ 251 — Genel Özellikler</a></li>
-<li class="toc-section"><a href="#section-02-motor-teknik">BÖLÜM 2 — MOTOR TEKNİK BİLGİLER</a></li>
-<li class="toc-chapter"><a href="#chapter-3">Motor Teknik Özellikler — ETZ 250 / 251 / 301 Karşılaştırma</a></li>
-<li class="toc-chapter"><a href="#chapter-4">Çalışma Prensibi — 2 Zamanlı Motor ve 4 Kanal Süpürme</a></li>
-<li class="toc-chapter"><a href="#chapter-5">Karbüratör — BVF 30 N 3-1</a></li>
-<li class="toc-chapter"><a href="#chapter-6">Ateşleme Sistemi</a></li>
-<li class="toc-chapter"><a href="#chapter-7">Egzoz Sistemi (Auspuffanlage)</a></li>
-<li class="toc-chapter"><a href="#chapter-8">Soğutma Sistemi</a></li>
-<li class="toc-chapter"><a href="#chapter-9">Yakıt ve Yağlama Sistemi</a></li>
-<li class="toc-chapter"><a href="#chapter-10">Şanzıman ve Debriyaj</a></li>
-<li class="toc-section"><a href="#section-03-bakim">BÖLÜM 3 — BAKIM KILAVUZLARI</a></li>
-<li class="toc-chapter"><a href="#chapter-11">Periyodik Bakım Takvimi</a></li>
-<li class="toc-chapter"><a href="#chapter-12">Karbüratör Ayarı — BVF 30 N 3-1</a></li>
-<li class="toc-chapter"><a href="#chapter-13">Ateşleme Ayarı</a></li>
-<li class="toc-chapter"><a href="#chapter-14">Fren Bakımı</a></li>
-<li class="toc-chapter"><a href="#chapter-15">Zincir Bakımı</a></li>
-<li class="toc-chapter"><a href="#chapter-16">Yakıt ve Yağ — Pratik Kılavuz</a></li>
-<li class="toc-chapter"><a href="#chapter-17">Elektrik Sistemi Bakımı</a></li>
-<li class="toc-chapter"><a href="#chapter-18">Kış Bakımı — Kışlık Saklama Prosedürleri</a></li>
-<li class="toc-section"><a href="#section-04-tamir">BÖLÜM 4 — TAMİR KILAVUZLARI</a></li>
-<li class="toc-chapter"><a href="#chapter-19">Genel Tamir İpuçları ve Alet Listesi</a></li>
-<li class="toc-chapter"><a href="#chapter-20">Motor Üst Revizyon (Top-End Rebuild)</a></li>
-<li class="toc-chapter"><a href="#chapter-21">Silindir ve Piston — Detaylı Bilgi</a></li>
-<li class="toc-chapter"><a href="#chapter-22">Krank Mili Revizyonu (Kurbelwelle)</a></li>
-<li class="toc-chapter"><a href="#chapter-23">Karbüratör Revizyonu</a></li>
-<li class="toc-chapter"><a href="#chapter-24">Şanzıman Tamiri</a></li>
-<li class="toc-chapter"><a href="#chapter-25">Conta ve Sızdırmazlık Onarımı</a></li>
-<li class="toc-chapter"><a href="#chapter-26">Elektrik Tamiri</a></li>
-<li class="toc-chapter"><a href="#chapter-27">Süspansiyon Tamiri</a></li>
-<li class="toc-section"><a href="#section-05-sorun-giderme">BÖLÜM 5 — SORUN GİDERME</a></li>
-<li class="toc-chapter"><a href="#chapter-28">Motor Çalışmıyor — Arıza Tespit Rehberi</a></li>
-<li class="toc-chapter"><a href="#chapter-29">Güç Kaybı — Arıza Tespit Rehberi</a></li>
-<li class="toc-chapter"><a href="#chapter-30">Piston Tutması — Kolbenklemmer</a></li>
-<li class="toc-chapter"><a href="#chapter-31">Ses ve Titreşim Sorunları</a></li>
-<li class="toc-section"><a href="#section-06-yedek-parca">BÖLÜM 6 — YEDEK PARÇA</a></li>
-<li class="toc-chapter"><a href="#chapter-32">Yedek Parça Kataloğu — MZ ETZ 251</a></li>
-<li class="toc-chapter"><a href="#chapter-33">Yedek Parça Tedarikçileri</a></li>
-<li class="toc-chapter"><a href="#chapter-34">Parça Uyumluluk Tablosu</a></li>
-<li class="toc-section"><a href="#section-07-referans">BÖLÜM 7 — REFERANS</a></li>
-<li class="toc-chapter"><a href="#chapter-35">Teknik Referans Tabloları — MZ ETZ 251</a></li>
-<li class="toc-chapter"><a href="#chapter-36">Tork Değerleri — MZ ETZ 251</a></li>
-<li class="toc-chapter"><a href="#chapter-37">Elektrik Şeması — MZ ETZ 251</a></li>
-<li class="toc-chapter"><a href="#chapter-38">Kaynaklar ve Referanslar</a></li>
+    <li class="toc-section"><a href="#section-01-tanitim">BÖLÜM 1 — TANITIM<span class="toc-page-num">6</span></a></li>
+<li class="toc-chapter"><a href="#chapter-1"><span class="toc-title">MZ ETZ 251 — Tarihçe</span><span class="toc-page-num">7</span></a></li>
+<li class="toc-chapter"><a href="#chapter-2"><span class="toc-title">MZ ETZ 251 — Genel Özellikler</span><span class="toc-page-num">11</span></a></li>
+<li class="toc-section"><a href="#section-02-motor-teknik">BÖLÜM 2 — MOTOR TEKNİK BİLGİLER<span class="toc-page-num">16</span></a></li>
+<li class="toc-chapter"><a href="#chapter-3"><span class="toc-title">Motor Teknik Özellikler — ETZ 250 / 251 / 301 Karşılaştırma</span><span class="toc-page-num">17</span></a></li>
+<li class="toc-chapter"><a href="#chapter-4"><span class="toc-title">Çalışma Prensibi — 2 Zamanlı Motor ve 4 Kanal Süpürme</span><span class="toc-page-num">21</span></a></li>
+<li class="toc-chapter"><a href="#chapter-5"><span class="toc-title">Karbüratör — BVF 30 N 3-1</span><span class="toc-page-num">25</span></a></li>
+<li class="toc-chapter"><a href="#chapter-6"><span class="toc-title">Ateşleme Sistemi</span><span class="toc-page-num">31</span></a></li>
+<li class="toc-chapter"><a href="#chapter-7"><span class="toc-title">Egzoz Sistemi (Auspuffanlage)</span><span class="toc-page-num">37</span></a></li>
+<li class="toc-chapter"><a href="#chapter-8"><span class="toc-title">Soğutma Sistemi</span><span class="toc-page-num">41</span></a></li>
+<li class="toc-chapter"><a href="#chapter-9"><span class="toc-title">Yakıt ve Yağlama Sistemi</span><span class="toc-page-num">45</span></a></li>
+<li class="toc-chapter"><a href="#chapter-10"><span class="toc-title">Şanzıman ve Debriyaj</span><span class="toc-page-num">49</span></a></li>
+<li class="toc-section"><a href="#section-03-bakim">BÖLÜM 3 — BAKIM KILAVUZLARI<span class="toc-page-num">54</span></a></li>
+<li class="toc-chapter"><a href="#chapter-11"><span class="toc-title">Periyodik Bakım Takvimi</span><span class="toc-page-num">55</span></a></li>
+<li class="toc-chapter"><a href="#chapter-12"><span class="toc-title">Karbüratör Ayarı — BVF 30 N 3-1</span><span class="toc-page-num">59</span></a></li>
+<li class="toc-chapter"><a href="#chapter-13"><span class="toc-title">Ateşleme Ayarı</span><span class="toc-page-num">70</span></a></li>
+<li class="toc-chapter"><a href="#chapter-14"><span class="toc-title">Fren Bakımı</span><span class="toc-page-num">74</span></a></li>
+<li class="toc-chapter"><a href="#chapter-15"><span class="toc-title">Zincir Bakımı</span><span class="toc-page-num">80</span></a></li>
+<li class="toc-chapter"><a href="#chapter-16"><span class="toc-title">Yakıt ve Yağ — Pratik Kılavuz</span><span class="toc-page-num">84</span></a></li>
+<li class="toc-chapter"><a href="#chapter-17"><span class="toc-title">Elektrik Sistemi Bakımı</span><span class="toc-page-num">88</span></a></li>
+<li class="toc-chapter"><a href="#chapter-18"><span class="toc-title">Kış Bakımı — Kışlık Saklama Prosedürleri</span><span class="toc-page-num">92</span></a></li>
+<li class="toc-section"><a href="#section-04-tamir">BÖLÜM 4 — TAMİR KILAVUZLARI<span class="toc-page-num">95</span></a></li>
+<li class="toc-chapter"><a href="#chapter-19"><span class="toc-title">Genel Tamir İpuçları ve Alet Listesi</span><span class="toc-page-num">96</span></a></li>
+<li class="toc-chapter"><a href="#chapter-20"><span class="toc-title">Motor Üst Revizyon (Top-End Rebuild)</span><span class="toc-page-num">100</span></a></li>
+<li class="toc-chapter"><a href="#chapter-21"><span class="toc-title">Silindir ve Piston — Detaylı Bilgi</span><span class="toc-page-num">106</span></a></li>
+<li class="toc-chapter"><a href="#chapter-22"><span class="toc-title">Krank Mili Revizyonu (Kurbelwelle)</span><span class="toc-page-num">111</span></a></li>
+<li class="toc-chapter"><a href="#chapter-23"><span class="toc-title">Karbüratör Revizyonu</span><span class="toc-page-num">115</span></a></li>
+<li class="toc-chapter"><a href="#chapter-24"><span class="toc-title">Şanzıman Tamiri</span><span class="toc-page-num">120</span></a></li>
+<li class="toc-chapter"><a href="#chapter-25"><span class="toc-title">Conta ve Sızdırmazlık Onarımı</span><span class="toc-page-num">123</span></a></li>
+<li class="toc-chapter"><a href="#chapter-26"><span class="toc-title">Elektrik Tamiri</span><span class="toc-page-num">127</span></a></li>
+<li class="toc-chapter"><a href="#chapter-27"><span class="toc-title">Süspansiyon Tamiri</span><span class="toc-page-num">131</span></a></li>
+<li class="toc-section"><a href="#section-05-sorun-giderme">BÖLÜM 5 — SORUN GİDERME<span class="toc-page-num">135</span></a></li>
+<li class="toc-chapter"><a href="#chapter-28"><span class="toc-title">Motor Çalışmıyor — Arıza Tespit Rehberi</span><span class="toc-page-num">136</span></a></li>
+<li class="toc-chapter"><a href="#chapter-29"><span class="toc-title">Güç Kaybı — Arıza Tespit Rehberi</span><span class="toc-page-num">140</span></a></li>
+<li class="toc-chapter"><a href="#chapter-30"><span class="toc-title">Piston Tutması — Kolbenklemmer</span><span class="toc-page-num">144</span></a></li>
+<li class="toc-chapter"><a href="#chapter-31"><span class="toc-title">Ses ve Titreşim Sorunları</span><span class="toc-page-num">149</span></a></li>
+<li class="toc-section"><a href="#section-06-yedek-parca">BÖLÜM 6 — YEDEK PARÇA<span class="toc-page-num">152</span></a></li>
+<li class="toc-chapter"><a href="#chapter-32"><span class="toc-title">Yedek Parça Kataloğu — MZ ETZ 251</span><span class="toc-page-num">153</span></a></li>
+<li class="toc-chapter"><a href="#chapter-33"><span class="toc-title">Yedek Parça Tedarikçileri</span><span class="toc-page-num">158</span></a></li>
+<li class="toc-chapter"><a href="#chapter-34"><span class="toc-title">Parça Uyumluluk Tablosu</span><span class="toc-page-num">161</span></a></li>
+<li class="toc-section"><a href="#section-07-referans">BÖLÜM 7 — REFERANS<span class="toc-page-num">164</span></a></li>
+<li class="toc-chapter"><a href="#chapter-35"><span class="toc-title">Teknik Referans Tabloları — MZ ETZ 251</span><span class="toc-page-num">165</span></a></li>
+<li class="toc-chapter"><a href="#chapter-36"><span class="toc-title">Tork Değerleri — MZ ETZ 251</span><span class="toc-page-num">169</span></a></li>
+<li class="toc-chapter"><a href="#chapter-37"><span class="toc-title">Elektrik Şeması — MZ ETZ 251</span><span class="toc-page-num">172</span></a></li>
+<li class="toc-chapter"><a href="#chapter-38"><span class="toc-title">Kaynaklar ve Referanslar</span><span class="toc-page-num">176</span></a></li>
 
   </ul>
 </div>
 
 <!-- CONTENT -->
-<div class="section-break" id="section-01-tanitim"><h1 class="section-title">BÖLÜM 1 — TANITIM</h1></div>
+<div class="section-break" id="section-01-tanitim"><span class="ch-marker">«01»</span><h1 class="section-title">BÖLÜM 1 — TANITIM</h1></div>
 <div class="chapter" id="chapter-1">
+<span class="ch-marker">«02»</span>
 <h1>MZ ETZ 251 — Tarihçe</h1>
 <h2>MZ Fabrikasının Kökenleri (1906–1945)</h2>
 <h3>DKW Dönemi</h3>
@@ -578,6 +388,7 @@ Yaygın alternatif yorum: <strong>E</strong>inzylinder, <strong>T</strong>elesko
 
 </div>
 <div class="chapter" id="chapter-2">
+<span class="ch-marker">«03»</span>
 <h1>MZ ETZ 251 — Genel Özellikler</h1>
 <h2>Kimlik Kartı</h2>
 <table>
@@ -915,8 +726,9 @@ Yaygın alternatif yorum: <strong>E</strong>inzylinder, <strong>T</strong>elesko
 <p><em>Kaynak: Wikipedia (DE), KFT 1988/8, KFT 1989/8, MOTORRAD 1989/16</em></p>
 
 </div>
-<div class="section-break" id="section-02-motor-teknik"><h1 class="section-title">BÖLÜM 2 — MOTOR TEKNİK BİLGİLER</h1></div>
+<div class="section-break" id="section-02-motor-teknik"><span class="ch-marker">«04»</span><h1 class="section-title">BÖLÜM 2 — MOTOR TEKNİK BİLGİLER</h1></div>
 <div class="chapter" id="chapter-3">
+<span class="ch-marker">«05»</span>
 <h1>Motor Teknik Özellikler — ETZ 250 / 251 / 301 Karşılaştırma</h1>
 <h2>Ana Teknik Veri Tablosu</h2>
 <table>
@@ -1286,6 +1098,7 @@ Yaygın alternatif yorum: <strong>E</strong>inzylinder, <strong>T</strong>elesko
 
 </div>
 <div class="chapter" id="chapter-4">
+<span class="ch-marker">«06»</span>
 <h1>Çalışma Prensibi — 2 Zamanlı Motor ve 4 Kanal Süpürme</h1>
 <h2>2 Zamanlı (Zweitakt) Motor Nedir?</h2>
 <p>MZ ETZ 251&#39;in EM 251 motoru, <strong>2 zamanlı</strong> (2-stroke / Zweitakt) bir benzinli motordur. 4 zamanlı motorlardan farklı olarak, krank milinin <strong>her bir tam dönüşünde</strong> (360°) bir güç darbesi üretir.</p>
@@ -1553,6 +1366,7 @@ Yaygın alternatif yorum: <strong>E</strong>inzylinder, <strong>T</strong>elesko
 
 </div>
 <div class="chapter" id="chapter-5">
+<span class="ch-marker">«07»</span>
 <h1>Karbüratör — BVF 30 N 3-1</h1>
 <h2>Genel Bilgi</h2>
 <table>
@@ -1924,6 +1738,7 @@ Yaygın alternatif yorum: <strong>E</strong>inzylinder, <strong>T</strong>elesko
 
 </div>
 <div class="chapter" id="chapter-6">
+<span class="ch-marker">«08»</span>
 <h1>Ateşleme Sistemi</h1>
 <h2>Genel Bakış</h2>
 <p>MZ ETZ 251, üretim dönemine ve varyantına göre <strong>iki farklı ateşleme sistemi</strong> ile donatılmıştır:</p>
@@ -2428,6 +2243,7 @@ Yaygın alternatif yorum: <strong>E</strong>inzylinder, <strong>T</strong>elesko
 
 </div>
 <div class="chapter" id="chapter-7">
+<span class="ch-marker">«09»</span>
 <h1>Egzoz Sistemi (Auspuffanlage)</h1>
 <h2>Genel Bakış</h2>
 <p>MZ ETZ 251&#39;in egzoz sistemi, 2 zamanlı motorun performansı için <strong>kritik</strong> bir bileşendir. 4 zamanlı motorlardan farklı olarak, 2 zamanlı motorlarda egzoz borusu yalnızca gazları atmaz; aynı zamanda <strong>rezonans dalgaları</strong> oluşturarak motorun verimini artıran aktif bir bileşendir.</p>
@@ -2671,6 +2487,7 @@ Yaygın alternatif yorum: <strong>E</strong>inzylinder, <strong>T</strong>elesko
 
 </div>
 <div class="chapter" id="chapter-8">
+<span class="ch-marker">«10»</span>
 <h1>Soğutma Sistemi</h1>
 <h2>Genel Bakış</h2>
 <p>MZ ETZ 251 motoru (EM 251), tamamen <strong>hava soğutmalı</strong> (luftgekühlt / air-cooled) bir motordur. Sıvı soğutma sistemi, radyatör, su pompası veya termostat yoktur. Soğutma, sürüş sırasında silindirin üzerinden geçen hava akışı ile sağlanır.</p>
@@ -2898,6 +2715,7 @@ Kamağı  │||═════════════════════�
 
 </div>
 <div class="chapter" id="chapter-9">
+<span class="ch-marker">«11»</span>
 <h1>Yakıt ve Yağlama Sistemi</h1>
 <h2>Genel Bakış</h2>
 <p>MZ ETZ 251 motorunda (EM 251) iki farklı yağlama sistemi kullanılmıştır:</p>
@@ -3182,6 +3000,7 @@ Kamağı  │||═════════════════════�
 
 </div>
 <div class="chapter" id="chapter-10">
+<span class="ch-marker">«12»</span>
 <h1>Şanzıman ve Debriyaj</h1>
 <h2>Şanzıman (Getriebe)</h2>
 <h3>Genel Bilgi</h3>
@@ -3520,8 +3339,9 @@ Sol El Kolu → Kablo Gevşer → Yaylar Diskleri Sıkıştırır
 <p><em>Kaynak: KFT 1981/5, KFT 1988/8, MZ Betriebsanleitung, MZ Reparaturanleitung</em></p>
 
 </div>
-<div class="section-break" id="section-03-bakim"><h1 class="section-title">BÖLÜM 3 — BAKIM KILAVUZLARI</h1></div>
+<div class="section-break" id="section-03-bakim"><span class="ch-marker">«13»</span><h1 class="section-title">BÖLÜM 3 — BAKIM KILAVUZLARI</h1></div>
 <div class="chapter" id="chapter-11">
+<span class="ch-marker">«14»</span>
 <h1>Periyodik Bakım Takvimi</h1>
 <h2>Bakım Kontrol Listesi</h2>
 <p>Aşağıdaki tablo, MZ ETZ 251 için önerilen periyodik bakım aralıklarını göstermektedir.</p>
@@ -4076,6 +3896,7 @@ Sol El Kolu → Kablo Gevşer → Yaylar Diskleri Sıkıştırır
 
 </div>
 <div class="chapter" id="chapter-12">
+<span class="ch-marker">«15»</span>
 <h1>Karbüratör Ayarı — BVF 30 N 3-1</h1>
 <h2>Ön Hazırlık</h2>
 <p>Karbüratör ayarı yapmadan önce aşağıdakilerin sağlıklı olduğundan emin olun:</p>
@@ -4754,6 +4575,7 @@ Sol El Kolu → Kablo Gevşer → Yaylar Diskleri Sıkıştırır
 
 </div>
 <div class="chapter" id="chapter-13">
+<span class="ch-marker">«16»</span>
 <h1>Ateşleme Ayarı</h1>
 <h2>Elektronik Ateşleme (CDI) — Ayar</h2>
 <p>Elektronik ateşlemeli ETZ 251 modellerde ateşleme zamanlaması <strong>fabrika ayarlıdır</strong> ve normalde ayar gerektirmez. Ancak kontrol gerekebilir:</p>
@@ -4949,6 +4771,7 @@ Sol El Kolu → Kablo Gevşer → Yaylar Diskleri Sıkıştırır
 
 </div>
 <div class="chapter" id="chapter-14">
+<span class="ch-marker">«17»</span>
 <h1>Fren Bakımı</h1>
 <h2>Fren Sistemi Genel Bakış</h2>
 <h3>Fren Sistemi Düzeni — Görsel</h3>
@@ -5355,6 +5178,7 @@ Sol El Kolu → Kablo Gevşer → Yaylar Diskleri Sıkıştırır
 
 </div>
 <div class="chapter" id="chapter-15">
+<span class="ch-marker">«18»</span>
 <h1>Zincir Bakımı</h1>
 <h2>Kapalı Zincir Sistemi</h2>
 <p>MZ ETZ 251, <strong>tamamen kapalı</strong> (vollgekapselt) ikincil zincir sistemi kullanır. Zincir, kauçuk hortumlar ve duroplast bir kutu içinde dış etkilerden korunur.</p>
@@ -5602,6 +5426,7 @@ düzgün profil)     bir yönde aşınmış)
 
 </div>
 <div class="chapter" id="chapter-16">
+<span class="ch-marker">«19»</span>
 <h1>Yakıt ve Yağ — Pratik Kılavuz</h1>
 <h2>Hızlı Referans Tablosu</h2>
 <table>
@@ -5874,6 +5699,7 @@ düzgün profil)     bir yönde aşınmış)
 
 </div>
 <div class="chapter" id="chapter-17">
+<span class="ch-marker">«20»</span>
 <h1>Elektrik Sistemi Bakımı</h1>
 <h2>Sistem Genel Bakış</h2>
 <table>
@@ -6252,6 +6078,7 @@ düzgün profil)     bir yönde aşınmış)
 
 </div>
 <div class="chapter" id="chapter-18">
+<span class="ch-marker">«21»</span>
 <h1>Kış Bakımı — Kışlık Saklama Prosedürleri</h1>
 <h2>Kışa Hazırlık (Sezon Kapanışı)</h2>
 <p>Motosikleti kış boyunca kullanmayacaksanız, aşağıdaki prosedür motor ve diğer bileşenlerin korunmasını sağlar.</p>
@@ -6392,8 +6219,9 @@ düzgün profil)     bir yönde aşınmış)
 <p><em>Kaynak: Genel motosiklet kış bakım pratikleri, MZ Betriebsanleitung tavsiyeleri</em></p>
 
 </div>
-<div class="section-break" id="section-04-tamir"><h1 class="section-title">BÖLÜM 4 — TAMİR KILAVUZLARI</h1></div>
+<div class="section-break" id="section-04-tamir"><span class="ch-marker">«22»</span><h1 class="section-title">BÖLÜM 4 — TAMİR KILAVUZLARI</h1></div>
 <div class="chapter" id="chapter-19">
+<span class="ch-marker">«23»</span>
 <h1>Genel Tamir İpuçları ve Alet Listesi</h1>
 <h2>Temel Alet Seti</h2>
 <p>MZ ETZ 251 üzerinde çoğu işi yapmak için gereken aletler:</p>
@@ -6688,6 +6516,7 @@ düzgün profil)     bir yönde aşınmış)
 
 </div>
 <div class="chapter" id="chapter-20">
+<span class="ch-marker">«24»</span>
 <h1>Motor Üst Revizyon (Top-End Rebuild)</h1>
 <h2>Ne Zaman Gerekir?</h2>
 <ul>
@@ -7080,6 +6909,7 @@ düzgün profil)     bir yönde aşınmış)
 
 </div>
 <div class="chapter" id="chapter-21">
+<span class="ch-marker">«25»</span>
 <h1>Silindir ve Piston — Detaylı Bilgi</h1>
 <h2>Silindir (Zylinder)</h2>
 <h3>Silindir Malzemesi ve Yapısı</h3>
@@ -7447,6 +7277,7 @@ düzgün profil)     bir yönde aşınmış)
 
 </div>
 <div class="chapter" id="chapter-22">
+<span class="ch-marker">«26»</span>
 <h1>Krank Mili Revizyonu (Kurbelwelle)</h1>
 <h2>Ne Zaman Gerekir?</h2>
 <ul>
@@ -7641,6 +7472,7 @@ düzgün profil)     bir yönde aşınmış)
 
 </div>
 <div class="chapter" id="chapter-23">
+<span class="ch-marker">«27»</span>
 <h1>Karbüratör Revizyonu</h1>
 <h2>Ne Zaman Gerekir?</h2>
 <ul>
@@ -7941,6 +7773,7 @@ düzgün profil)     bir yönde aşınmış)
 
 </div>
 <div class="chapter" id="chapter-24">
+<span class="ch-marker">«28»</span>
 <h1>Şanzıman Tamiri</h1>
 <h2>Yaygın Şanzıman Arızaları</h2>
 <table>
@@ -8157,6 +7990,7 @@ düzgün profil)     bir yönde aşınmış)
 
 </div>
 <div class="chapter" id="chapter-25">
+<span class="ch-marker">«29»</span>
 <h1>Conta ve Sızdırmazlık Onarımı</h1>
 <h2>Genel Bilgi</h2>
 <p>MZ ETZ 251 motorunda çeşitli contalama noktaları bulunur. 2 zamanlı motorlarda karter sızdırmazlığı <strong>kritiktir</strong> — çünkü karter, emme devresinin bir parçasıdır ve hava kaçağı motorun çalışmasını doğrudan etkiler.</p>
@@ -8394,6 +8228,7 @@ düzgün profil)     bir yönde aşınmış)
 
 </div>
 <div class="chapter" id="chapter-26">
+<span class="ch-marker">«30»</span>
 <h1>Elektrik Tamiri</h1>
 <h2>Genel Arıza Tespit Yaklaşımı</h2>
 <p>Elektrik arızalarında sistematik yaklaşım önemlidir:</p>
@@ -8670,6 +8505,7 @@ düzgün profil)     bir yönde aşınmış)
 
 </div>
 <div class="chapter" id="chapter-27">
+<span class="ch-marker">«31»</span>
 <h1>Süspansiyon Tamiri</h1>
 <h2>Ön Süspansiyon — Teleskopik Çatal (Telegabel)</h2>
 <h3>Özellikler</h3>
@@ -8928,8 +8764,9 @@ düzgün profil)     bir yönde aşınmış)
 <p><em>Kaynak: MZ Reparaturanleitung, genel motosiklet süspansiyon tamir pratikleri</em></p>
 
 </div>
-<div class="section-break" id="section-05-sorun-giderme"><h1 class="section-title">BÖLÜM 5 — SORUN GİDERME</h1></div>
+<div class="section-break" id="section-05-sorun-giderme"><span class="ch-marker">«32»</span><h1 class="section-title">BÖLÜM 5 — SORUN GİDERME</h1></div>
 <div class="chapter" id="chapter-28">
+<span class="ch-marker">«33»</span>
 <h1>Motor Çalışmıyor — Arıza Tespit Rehberi</h1>
 <h2>Hızlı Kontrol Akış Şeması</h2>
 <pre><code>  ╔═══════════════════════════════════════════════════════════╗
@@ -9262,6 +9099,7 @@ düzgün profil)     bir yönde aşınmış)
 
 </div>
 <div class="chapter" id="chapter-29">
+<span class="ch-marker">«34»</span>
 <h1>Güç Kaybı — Arıza Tespit Rehberi</h1>
 <h2>Güç Kaybı Türleri</h2>
 <table>
@@ -9608,6 +9446,7 @@ düzgün profil)     bir yönde aşınmış)
 
 </div>
 <div class="chapter" id="chapter-30">
+<span class="ch-marker">«35»</span>
 <h1>Piston Tutması — Kolbenklemmer</h1>
 <h2>Tanım</h2>
 <p><strong>Kolbenklemmer</strong> (piston tutması / piston seizure), 2 zamanlı motorlarda en korkulan arızalardan biridir. Piston, aşırı ısınma nedeniyle silindir duvarına yapışır ve motor <strong>aniden durur</strong>.</p>
@@ -9963,6 +9802,7 @@ düzgün profil)     bir yönde aşınmış)
 
 </div>
 <div class="chapter" id="chapter-31">
+<span class="ch-marker">«36»</span>
 <h1>Ses ve Titreşim Sorunları</h1>
 <h2>Motor Sesleri</h2>
 <h3>Normal Sesler</h3>
@@ -10264,8 +10104,9 @@ düzgün profil)     bir yönde aşınmış)
 <p><em>Kaynak: Genel 2T motor sorun giderme pratikleri</em></p>
 
 </div>
-<div class="section-break" id="section-06-yedek-parca"><h1 class="section-title">BÖLÜM 6 — YEDEK PARÇA</h1></div>
+<div class="section-break" id="section-06-yedek-parca"><span class="ch-marker">«37»</span><h1 class="section-title">BÖLÜM 6 — YEDEK PARÇA</h1></div>
 <div class="chapter" id="chapter-32">
+<span class="ch-marker">«38»</span>
 <h1>Yedek Parça Kataloğu — MZ ETZ 251</h1>
 <h2>Ana Parça Grupları</h2>
 <p>Aşağıdaki tablo, MZ ETZ 251&#39;in ana parça gruplarını ve tipik aşınma/değişim parçalarını listeler.</p>
@@ -10747,6 +10588,7 @@ düzgün profil)     bir yönde aşınmış)
 
 </div>
 <div class="chapter" id="chapter-33">
+<span class="ch-marker">«39»</span>
 <h1>Yedek Parça Tedarikçileri</h1>
 <h2>Online Mağazalar</h2>
 <h3>Almanya (Ana Kaynak)</h3>
@@ -10946,6 +10788,7 @@ düzgün profil)     bir yönde aşınmış)
 
 </div>
 <div class="chapter" id="chapter-34">
+<span class="ch-marker">«40»</span>
 <h1>Parça Uyumluluk Tablosu</h1>
 <h2>Model Karşılaştırma — ETZ 250 / 251 / 301</h2>
 <h3>⚠️ Kritik Uyumluluk Uyarıları</h3>
@@ -11279,8 +11122,9 @@ düzgün profil)     bir yönde aşınmış)
 <p><em>Kaynak: MZ parça katalogları, topluluk deneyimleri, Wikipedia (DE)</em></p>
 
 </div>
-<div class="section-break" id="section-07-referans"><h1 class="section-title">BÖLÜM 7 — REFERANS</h1></div>
+<div class="section-break" id="section-07-referans"><span class="ch-marker">«41»</span><h1 class="section-title">BÖLÜM 7 — REFERANS</h1></div>
 <div class="chapter" id="chapter-35">
+<span class="ch-marker">«42»</span>
 <h1>Teknik Referans Tabloları — MZ ETZ 251</h1>
 <h2>Motor Özellikleri (Hızlı Referans)</h2>
 <table>
@@ -11675,6 +11519,7 @@ düzgün profil)     bir yönde aşınmış)
 
 </div>
 <div class="chapter" id="chapter-36">
+<span class="ch-marker">«43»</span>
 <h1>Tork Değerleri — MZ ETZ 251</h1>
 <h2>Genel Kurallar</h2>
 <ol>
@@ -11988,6 +11833,7 @@ düzgün profil)     bir yönde aşınmış)
 
 </div>
 <div class="chapter" id="chapter-37">
+<span class="ch-marker">«44»</span>
 <h1>Elektrik Şeması — MZ ETZ 251</h1>
 <h2>Genel Sistem Yapısı</h2>
 <p>MZ ETZ 251, 12V DC elektrik sistemi kullanır. Enerji kaynağı olarak jeneratör (Lichtmaschine) ve (bazı varyantlarda) akü bulunur.</p>
@@ -12301,6 +12147,7 @@ Jeneratör───→│ gerät)   │    │(Zündspule)│
 
 </div>
 <div class="chapter" id="chapter-38">
+<span class="ch-marker">«45»</span>
 <h1>Kaynaklar ve Referanslar</h1>
 <h2>Resmi ve Birincil Kaynaklar</h2>
 <table>
